@@ -1,0 +1,14 @@
+{
+  "name": "cosmoclash",
+  "version": "0.0.1",
+  "description": "A MMO about space conquest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Franck, Gaetan, Messaoud, Sonia",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^4.51.0"
+  }
+}
