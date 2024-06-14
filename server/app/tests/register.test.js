@@ -25,9 +25,10 @@ describe('register methods', () => {
         }
         expect(values).equal([true, true, true]);
         expect(values).notEqual([false, false, false]);
-        expect(values).notEqual([false, true, true]);
+        expect(values).notEqual([true, true, false]);
         expect(values).notEqual([false, true, false]);
         expect(values).notEqual([false, false, true]);
+        expect(values).notEqual([false, true, true]);
         expect(values).notEqual([true, false, false]);
     })
 });
