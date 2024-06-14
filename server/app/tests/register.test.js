@@ -11,4 +11,7 @@ describe('register methods', () => {
         expect(request.body).notEqual("");
         expect(request.body).notEqual(undefined);
     });
+    test('Check req.body keys are (username, email, password)', async () => {
+        expect(Object.keys(request.body)).toBe(["username", "email", "password"]);
+    })
 });
