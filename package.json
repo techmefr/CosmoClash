@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "openai": "^4.51.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
