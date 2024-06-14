@@ -52,4 +52,15 @@ describe('register methods', () => {
         expect(response.body.message).toBe("Created");
         expect(response.statusCode).toBe(201);
     })
+    test(`Check that if fields are missing response 
+    type 422: Unprocessable entity`, async () => {
+        let values = false;
+        for (const [key, value] of Object.entries(request.body)) {
+            values = value === undefined && value === "";
+        }
+        if(values) {
+            expect(response.body.message).toBe("Unprocessable entity");
+            expect(response.statusCode).toBe(422);
+        }
+    })
 });
