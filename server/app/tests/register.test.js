@@ -1,4 +1,5 @@
-const { request } = require('express');
+const { request, response } = require('express');
+const { mysql } = require('mysql2');
 
 describe('register methods', () => {
     beforeEach(() => {
@@ -30,5 +31,12 @@ describe('register methods', () => {
         expect(values).notEqual([false, false, true]);
         expect(values).notEqual([false, true, true]);
         expect(values).notEqual([true, false, false]);
-    })
+    });
+    test('Check that the new user is sent to database', async () => {
+        expect(response.statusCode).toBe(201)
+        let hasUser = false;
+        const user = userModel.findAll().then(data => hasUser = !!data)
+            .catch(err => hasUser = false);
+        expect(hasUser).toBeTruthy();
+    });
 });
