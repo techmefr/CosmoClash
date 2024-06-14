@@ -51,16 +51,16 @@ describe('register methods', () => {
     response result is {message: "Created", status: 201}`, async () => {
         expect(response.body.message).toBe("Created");
         expect(response.statusCode).toBe(201);
-    })
+    });
     test(`Check that if fields are missing response 
     type 422: Unprocessable entity`, async () => {
-        let values = false;
-        for (const [key, value] of Object.entries(request.body)) {
-            values = value === undefined && value === "";
-        }
-        if(values) {
+        if(
+            (request.body.username === undefined || request.body.username === "") &&
+            (request.body.email === undefined || request.body.email === "") &&
+            (request.body.password === undefined || request.body.password === "")
+        ) {
             expect(response.body.message).toBe("Unprocessable entity");
             expect(response.statusCode).toBe(422);
         }
-    })
+    });
 });
