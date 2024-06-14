@@ -46,4 +46,10 @@ describe('register methods', () => {
         })
         expect(isBcrypt).toBeTruthy();
     });
+    test(`
+    Check that if the user is sent to the database 
+    response result is {message: "Created", status: 201}`, async () => {
+        expect(response.body.message).toBe("Created");
+        expect(response.statusCode).toBe(201);
+    })
 });
