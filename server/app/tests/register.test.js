@@ -35,7 +35,7 @@ describe('register methods', () => {
     test('Check that the new user is sent to database', async () => {
         expect(response.statusCode).toBe(201)
         let hasUser = false;
-        const user = userModel.findAll().then(data => hasUser = !!data)
+        userModel.findAll().then(data => hasUser = !!data)
             .catch(err => hasUser = false);
         expect(hasUser).toBeTruthy();
     });
