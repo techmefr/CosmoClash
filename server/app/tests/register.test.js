@@ -39,4 +39,11 @@ describe('register methods', () => {
             .catch(err => hasUser = false);
         expect(hasUser).toBeTruthy();
     });
+    test('Check that the password entered in database is of type bcrypt', async () => {
+        let isBcrypt = false;
+        userModel.findByEmail(request.body.email).then(data => {
+            isBcrypt = new RegExp(/^\$2[ayb]\$.{56}$/).test(data.password);
+        })
+        expect(isBcrypt).toBeTruthy();
+    });
 });
