@@ -16,6 +16,6 @@ const app = http2Express(express)
     .use(cors(Config.app.cors))
     .use(bodyParser.urlencoded({extended: false}))
     .use(bodyParser.json())
-    .get('/', (req, res) => res.send('Hello world'));
+    .get('/', (req, res) => console.log(req.session));
 
 export default app;
