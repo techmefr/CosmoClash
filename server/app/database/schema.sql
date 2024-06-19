@@ -8,6 +8,7 @@ CREATE TABLE technologies (
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `name` VARCHAR(100) NOT NULL
 );
+-- new test
 CREATE TABLE ships_technologies(
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `technology_id` INT NULL DEFAULT NULL,
