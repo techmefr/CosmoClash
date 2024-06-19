@@ -5,6 +5,9 @@ import morgan from 'morgan';
 
 import bodyParser from "body-parser";
 import Config from "../config/index.js";
+import { setHeader } from "./providers/responseApi/setHeader.js";
+import apiRouter from "./providers/routes/api/router.js";
+import authRouter from "./providers/routes/authentication/router.js";
 
 morgan.token('id', function getId (req) {
     return req.id
@@ -16,6 +19,8 @@ const app = http2Express(express)
     .use(cors(Config.app.cors))
     .use(bodyParser.urlencoded({extended: false}))
     .use(bodyParser.json())
-    .get('/', (req, res) => console.log(req.session));
+    .use(setHeader)
+    .use('/', authRouter)
+    .use('/api', apiRouter);
 
 export default app;
