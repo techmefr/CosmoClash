@@ -3,23 +3,7 @@ DROP DATABASE IF EXISTS dbCosmoClash;
 CREATE DATABASE dbCosmoClash;
 
 USE dbCosmoClash;
-/*
-TODO:
-    - [X] users
-    - [X] users_actions
-    - [X] actions
-    - [X] alliances
-    - [X] planets_users
-    - [X] planets
-    - [X] positions
-    - [ ] planets_resources
-    - [X] resources
-    - [X] planets_ships
-    - [X] ships
-    - [ ] ships_technologies
-    - [ ] technologies
-*/
-# `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+
 CREATE TABLE technologies (
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `name` VARCHAR(100) NOT NULL
