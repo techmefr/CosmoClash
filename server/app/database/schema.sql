@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS dbCosmoClash;
 CREATE DATABASE dbCosmoClash;
 
 USE dbCosmoClash;
-
+-- test
 CREATE TABLE technologies (
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `name` VARCHAR(100) NOT NULL
