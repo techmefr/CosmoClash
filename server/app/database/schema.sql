@@ -3,92 +3,146 @@ DROP DATABASE IF EXISTS dbCosmoClash;
 CREATE DATABASE dbCosmoClash;
 
 USE dbCosmoClash;
+/*
+TODO:
+    - [X] users
+    - [X] users_actions
+    - [X] actions
+    - [X] alliances
+    - [X] planets_users
+    - [X] planets
+    - [X] positions
+    - [ ] planets_resources
+    - [X] resources
+    - [X] planets_ships
+    - [X] ships
+    - [ ] ships_technologies
+    - [ ] technologies
+*/
+# `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+CREATE TABLE technologies (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` VARCHAR(100) NOT NULL
+);
+CREATE TABLE ships_technologies(
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `technology_id` INT NULL DEFAULT NULL,
+    `ship_id` INT NULL DEFAULT NULL
+);
+CREATE TABLE ships (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` VARCHAR(100)
+);
 
-CREATE TABLE `user`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `username` VARCHAR(80) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
-    `admin` BOOLEAN NOT NULL,
-    `action_id` BIGINT NOT NULL,
-    `alliance_id` BIGINT NOT NULL,
-    `planet_id` BIGINT NOT NULL
+CREATE TABLE planets_ships (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `ship_id` INT NULL DEFAULT NULL,
+    planet_id INT NULL DEFAULT NULL
 );
-CREATE TABLE `action`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL,
-    `begin` DATETIME NOT NULL,
-    `intermed` DATETIME NULL,
-    `end` DATETIME NOT NULL,
-    `result` BIGINT NULL,
-    `ressourcesWin` BIGINT NULL,
-    `ressourcesLose` BIGINT NULL,
-    `shipLose` BIGINT NULL,
-    `moneyWin` BIGINT NULL,
-    `moneyLose` BIGINT NULL,
-    `history` TEXT NULL
+
+CREATE TABLE resources (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` VARCHAR(100) NOT NULL,
+    `icon` VARCHAR(100) NOT NULL
 );
-CREATE TABLE `ship_technology`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `ship_id` BIGINT NOT NULL,
-    `technology_id` BIGINT NOT NULL
+
+CREATE TABLE planets_resources(
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `resource_id` INT NOT NULL,
+    `planet_id` INT NOT NULL
 );
-CREATE TABLE `ship`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(80) NOT NULL,
-    `technology_id` BIGINT NOT NULL, // TODO! Refaire ceci
-    `position_id` BIGINT NOT NULL
+
+CREATE TABLE positions (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    coord_x BIGINT NOT NULL,
+    coord_y BIGINT NOT NULL
 );
-CREATE TABLE `position`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `coordX` BIGINT NOT NULL,
-    `coordY` BIGINT NOT NULL,
-    `coordZ` BIGINT NOT NULL // TODO! à confirmer sinon juste 2D on peut laisser pour plus tard
+CREATE TABLE alliances (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` VARCHAR(100) NULL DEFAULT NULL,
+    `color` VARCHAR(100) NULL DEFAULT NULL
 );
-CREATE TABLE `ressource`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(25) NOT NULL,
-    `icon` VARCHAR(255) NOT NULL
+
+CREATE TABLE planets (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` VARCHAR(100) NOT NULL,
+    `position_id` INT NULL DEFAULT NULL
 );
-CREATE TABLE `planet`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(80) NOT NULL,
-    `ressources_id` BIGINT NOT NULL,
-    `position_id` BIGINT NOT NULL,
-    `ship_id` BIGINT NOT NULL,
-    `position_id` BIGINT NOT NULL
+
+CREATE TABLE users_planets (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `user_id` INT NULL DEFAULT NULL,
+    `planet_id` INT NULL DEFAULT NULL
 );
-CREATE TABLE `planet_ressource`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `planet_id` BIGINT NOT NULL,
-    `ressource_id` BIGINT NOT NULL
+
+CREATE TABLE users (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `username` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(150) NOT NULL UNIQUE,
+    `password` VARCHAR(100) NOT NULL UNIQUE,
+    `alliance_id` INT NULL DEFAULT NULL
 );
-CREATE TABLE `alliance`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL,
-    `color` VARCHAR(255) NOT NULL
+
+CREATE TABLE users_actions (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `user_id` INT NULL DEFAULT NULL,
+    `action_id` INT NULL DEFAULT NULL
 );
-CREATE TABLE `technology`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL
+
+CREATE TABLE actions (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` BIGINT NOT NULL,
+    `begin` DATETIME DEFAULT NOW(),
+    `intermed` DATETIME NULL DEFAULT NULL,
+    `end` DATETIME,
+    `result` BIGINT NOT NULL,
+    `resources_win` BIGINT NOT NULL,
+    `resources_lose` BIGINT NOT NULL,
+    `ship_lose` BIGINT NOT NULL,
+    `money_win` BIGINT NOT NULL,
+    `money_lose` BIGINT NOT NULL,
+    `history` TEXT NULL DEFAULT NULL
 );
-ALTER TABLE
-    `ship` ADD CONSTRAINT `ship_position_id_foreign` FOREIGN KEY(`position_id`) REFERENCES `position`(`id`);
-ALTER TABLE
-    `user` ADD CONSTRAINT `user_planet_id_foreign` FOREIGN KEY(`planet_id`) REFERENCES `planet`(`id`);
-ALTER TABLE
-    `planet_ressource` ADD CONSTRAINT `planet_ressource_planet_id_foreign` FOREIGN KEY(`planet_id`) REFERENCES `planet`(`id`);
-ALTER TABLE
-    `planet_ressource` ADD CONSTRAINT `planet_ressource_ressource_id_foreign` FOREIGN KEY(`ressource_id`) REFERENCES `ressource`(`id`);
-ALTER TABLE
-    `planet` ADD CONSTRAINT `planet_ship_id_foreign` FOREIGN KEY(`ship_id`) REFERENCES `ship`(`id`);
-ALTER TABLE
-    `ship_technology` ADD CONSTRAINT `ship_technology_ship_id_foreign` FOREIGN KEY(`ship_id`) REFERENCES `ship`(`id`);
-ALTER TABLE
-    `planet` ADD CONSTRAINT `planet_position_id_foreign` FOREIGN KEY(`position_id`) REFERENCES `position`(`id`);
-ALTER TABLE
-    `user` ADD CONSTRAINT `user_action_id_foreign` FOREIGN KEY(`action_id`) REFERENCES `action`(`id`);
-ALTER TABLE
-    `ship_technology` ADD CONSTRAINT `ship_technology_technology_id_foreign` FOREIGN KEY(`technology_id`) REFERENCES `technology`(`id`);
-ALTER TABLE
-    `user` ADD CONSTRAINT `user_alliance_id_foreign` FOREIGN KEY(`alliance_id`) REFERENCES `alliance`(`id`);
+
+/*
+    ALTER TABLES
+*/
+
+# OneToMany
+
+-- users
+ALTER TABLE users ADD CONSTRAINT FK_ALLIANCES FOREIGN KEY (`alliance_id`) REFERENCES alliances(`id`)
+    ON DELETE SET NULL;
+
+-- users_planets
+ALTER TABLE users_planets ADD CONSTRAINT FK_PLANETS_USERS FOREIGN KEY (`user_id`) REFERENCES users(`id`)
+    ON DELETE SET NULL;
+
+# ManyToMany
+-- users_actions
+ALTER TABLE users_actions ADD CONSTRAINT FK_ACTIONS_USERS FOREIGN KEY (`user_id`) REFERENCES users(`id`)
+    ON DELETE SET NULL;
+ALTER TABLE users_actions ADD CONSTRAINT FK_ACTIONS FOREIGN KEY (`action_id`) REFERENCES actions(`id`)
+    ON DELETE SET NULL;
+
+-- planets
+ALTER TABLE planets ADD CONSTRAINT FK_POSITIONS FOREIGN KEY (`position_id`) REFERENCES positions(`id`)
+    ON DELETE SET NULL;
+ALTER TABLE users_planets ADD CONSTRAINT FK_PLANETS FOREIGN KEY (`planet_id`) REFERENCES planets(`id`)
+    ON DELETE SET NULL;
+
+-- planets_resources
+ALTER TABLE planets_resources ADD FOREIGN KEY (`resource_id`) REFERENCES resources(`id`);
+ALTER TABLE planets_resources ADD FOREIGN KEY (`planet_id`) REFERENCES planets(`id`);
+
+-- planets_ships
+ALTER TABLE planets_ships ADD CONSTRAINT FK_PLANETS_RESOURCES FOREIGN KEY (`ship_id`)
+    REFERENCES ships(`id`) ON DELETE SET NULL;
+ALTER TABLE planets_ships ADD CONSTRAINT FK_RESOURCES_PLANETS FOREIGN KEY (`planet_id`)
+    REFERENCES planets(`id`) ON DELETE SET NULL;
+
+-- ships_technologies
+ALTER TABLE ships_technologies ADD CONSTRAINT FK_TECHNOLOGIES_DELETE FOREIGN KEY (`technology_id`)
+    REFERENCES technologies(`id`) ON DELETE SET NULL;
+ALTER TABLE ships_technologies ADD CONSTRAINT FK_SHIPS_DELETE FOREIGN KEY (`ship_id`)
+    REFERENCES ships(`id`) ON DELETE SET NULL;
