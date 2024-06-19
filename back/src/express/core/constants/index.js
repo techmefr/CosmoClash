@@ -1,3 +1,3 @@
 import UserModel from './../models/UserModel.js'
 
-const userModel = new UserModel();
+export const userModel = new UserModel();
