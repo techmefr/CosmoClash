@@ -63,6 +63,7 @@ CREATE TABLE users_planets (
 CREATE TABLE users (
                        `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
                        `username` VARCHAR(100) NOT NULL,
+                       `is_admin` BOOLEAN DEFAULT 0,
                        `email` VARCHAR(150) NOT NULL UNIQUE,
                        `password` VARCHAR(100) NOT NULL UNIQUE,
                        `alliance_id` INT NULL DEFAULT NULL
