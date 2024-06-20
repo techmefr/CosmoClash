@@ -1,0 +1,1 @@
+// TODO : celui de la page GamePage, une fois connecté le joueur voir son alliance ou un autre truc, ses ressources à droite et ses planètes, vaisseaux à gauche
