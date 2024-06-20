@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 
 export const hashPassword = (req, res, next) => {
-    if(req.method === 'POST' && req.body.email !== undefined && req.body.password !== undefined && req.body.username !== undefined)
+    if(req.method === 'POST' && req.body.email !== undefined && req.body.password !== undefined)
     {
         bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(req.body.password, salt, function(err, hash) {
