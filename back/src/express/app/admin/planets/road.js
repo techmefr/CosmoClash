@@ -1,6 +1,7 @@
 import express from "express";
 import {
     index,
+    addedPositionToPlanet,
     findPlanets,
     createPlanets,
     putPlanets,
@@ -16,6 +17,7 @@ planetRoad
     .post('/created', createPlanets)
     .put('/updated/:id', putPlanets)
     .patch('/updated/:id', patchPlanets)
+    .patch('/added/positions/:id', addedPositionToPlanet)
     .delete('/:id', deletePlanets);
 
 export default planetRoad;
