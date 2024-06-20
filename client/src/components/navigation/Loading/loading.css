@@ -1,4 +1,4 @@
-.container {
+.loading-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -16,7 +16,7 @@
   font-weight: bolder;
 }
 
-.item {
+.loading-item {
   position: absolute;
   background-color: transparent;
   width: calc(var(--i) * 2.5vmin);
