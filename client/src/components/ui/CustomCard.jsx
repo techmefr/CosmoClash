@@ -1,0 +1,1 @@
+// TODO : Composant qu'on utilise pour afficher les infos ou créer un autre pour gérer les cards de proposition (market, planet et alliance)
