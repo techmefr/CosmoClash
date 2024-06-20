@@ -1,6 +1,5 @@
-import jwt from "jsonwebtoken";
-import {userCreated, userFindByEmail} from "../../core/services/UserServices.js";
-import bcrypt from "bcrypt";
+import { userCreated, userFindByEmail } from "../../core/services/UserServices.js";
+import { bcryptUtils, jsonWebToken } from "../../core/utils/index.js";
 
 export const register = (req, res) => {
     console.log(req.body);
@@ -11,7 +10,6 @@ export const register = (req, res) => {
     });
 }
 
-
 export const login = (req, res) => {
 
     userFindByEmail(req.body.email)
@@ -19,14 +17,31 @@ export const login = (req, res) => {
             if (!user) {
                 return res.status(401).json({ message: 'Paire login/mot de passe incorrecte', status: res.statusCode});
             }
-            bcrypt.compare(req.body.password, user[0].password, (err, result) => {
-                if(err)
-                    res.status(500).send(JSON.stringify({message: 'Internal Server Error: ' + err.message, status: res.statusCode}));
-                if (result) {
-                    let token = jwt.sign({userId: user.id}, "shhhh", {expiresIn: "1h"});
-                    res.status(200).json({message: "ok", token: token, status: res.statusCode});
-                } 
+
+            bcryptUtils.verifyPassword(req.body.password, user[0].password)
+                .then(result => {
+                    if (!result) 
+                        res.status(401).send(JSON.stringify({
+                            message: 'Unauthorized: Wrong password',
+                            status: res.statusCode
+                        }));
+                    res.status(200).json({
+                        message: "ok", 
+                        token: jsonWebToken.createToken({userId: user.id, isAdmin: user.is_admin}), 
+                        status: res.statusCode
+                    });
+                })
+                .catch(err => 
+                    res.status(500).send(JSON.stringify({
+                        message: 'Internal Server Error: ' + err.message,
+                        status: res.statusCode
+                    }))
+                );
             })
-        })
-        .catch(error => res.status(500).json({ error }));
+        .catch(() =>  
+            res.status(401).send(JSON.stringify({
+                message: 'Unauthorized: Email unrecognized',
+                status: res.statusCode
+            }))
+        );
  };

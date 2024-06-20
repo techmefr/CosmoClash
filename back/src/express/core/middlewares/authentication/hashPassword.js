@@ -1,14 +1,14 @@
-import bcrypt from 'bcrypt';
+import { bcryptUtils } from "../../utils/index.js";
 
 export const hashPassword = (req, res, next) => {
     if(req.method === 'POST' && req.body.email !== undefined && req.body.password !== undefined)
     {
-        bcrypt.genSalt(10, function(err, salt) {
-            bcrypt.hash(req.body.password, salt, function(err, hash) {
+        bcryptUtils.createPasword(req.body.password)
+            .then(hash => {
                 req.body.password = hash;
                 return next();
-            });
-        });
+            })
+            .catch(err => console.error(err));
     } else {
         res.status(400).send(JSON.stringify({message: 'BAD REQUEST', status: res.statusCode}));
     }
