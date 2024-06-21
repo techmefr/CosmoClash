@@ -20,7 +20,7 @@ export default class UserModel extends AbstractModels {
             ? ' WHERE id = ?'
             : ' WHERE email = ?';
         return new Promise((resolve, reject) => {
-            this.connexion.query(sql, value, (err, result) => {
+            this.connexion.query(sql, [value], (err, result) => {
                 if(err) reject(err)
                 resolve(result);
             });
