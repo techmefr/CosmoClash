@@ -12,7 +12,7 @@ export const index = (req, res) => {
             if(dataResult.length > 0) {
                 res.status(200).send(JSON.stringify({
                     message: 'Ok',
-                    data: data,
+                    data: dataResult,
                     status: res.statusCode
                 }));
             } else {
@@ -31,10 +31,11 @@ export const index = (req, res) => {
 }
 export const findResource = (req, res) => {
     resourceFind(req.params.id)
-        .then(resources => dataResult => {
+        .then(dataResult => {
             if(dataResult) {
-                res.status(201).send(JSON.stringify({
-                    message: 'Created',
+                res.status(200).send(JSON.stringify({
+                    message: 'Ok',
+                    data: dataResult,
                     status: res.statusCode
                 }));
             } else {
@@ -54,17 +55,11 @@ export const findResource = (req, res) => {
 
 export const putResource = (req, res) => {
     resourceUpdateAllData(req.body, req.params.id)
-        .then(resultData => {
-            if(resultData)
-                res.status(201).send(JSON.stringify({
-                    message: 'Updated all actions',
-                    status: res.statusCode
-                }));
-            else
-                res.status(500).send(JSON.stringify({
-                    message: 'Internal Server Error: bad credentials',
-                    status: res.statusCode
-                }));
+        .then(() => {
+            res.status(201).send(JSON.stringify({
+                message: 'Updated all resources',
+                status: res.statusCode
+            }));
         })
         .catch((err) => {
             res.status(204).send(JSON.stringify({
@@ -75,17 +70,11 @@ export const putResource = (req, res) => {
 }
 export const patchResource = (req, res) => {
     resourceUpdateOneData(req.body, req.params.id)
-        .then(resultData => {
-            if(resultData)
-                res.status(201).send(JSON.stringify({
-                    message: 'Updated specific action data',
-                    status: res.statusCode
-                }));
-            else
-                res.status(500).send(JSON.stringify({
-                    message: 'Internal Server Error: bad credentials',
-                    status: res.statusCode
-                }));
+        .then(() => {
+            res.status(201).send(JSON.stringify({
+                message: 'Updated specific resource data',
+                status: res.statusCode
+            }));
         })
         .catch((err) => {
             res.status(204).send(JSON.stringify({

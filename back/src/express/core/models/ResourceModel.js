@@ -43,12 +43,13 @@ export default class ResourceModel extends AbstractModels {
         let sql = 'UPDATE resources ';
         let values = Object.values(resource);
         for (const [key] of Object.entries(resource)) {
-            if(key !== Object.keys(action)[Object.keys(resource).length - 1])
+            if(key !== Object.keys(resource)[Object.keys(resource).length - 1])
                 sql += ` SET ${ key.toString() } = ?, `;
             else
-                sql+= `${ key.toString()} = ? `;
+                sql+= `SET ${ key.toString()} = ? `;
         }
         sql += 'WHERE id = ?';
+        console.log(sql);
         return new Promise((resolve, reject) => {
             this.connexion.query(sql, [...values, id], (err, result) => {
                 if(err) {

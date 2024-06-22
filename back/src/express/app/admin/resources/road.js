@@ -12,7 +12,7 @@ const resourceRoad = express.Router();
 resourceRoad
     .get('/', index)
     .get('/:id', findResource)
-    .put('/:id', putResource)
+    .put('/updated/:id', putResource)
     .patch('/updated/:id', patchResource)
     .delete('/:id', deletedResource);
 
