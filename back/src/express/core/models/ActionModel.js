@@ -20,7 +20,7 @@ export default class ActionModel extends AbstractModels {
             });
         });
     }
-    createNewActions (user) {
+    createNewActions (action) {
         return new Promise((resolve, reject) => {
             this.connexion.query(
                 `
@@ -29,15 +29,16 @@ export default class ActionModel extends AbstractModels {
                     VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 `,
                 [
-                    user.name,
-                    user.begin,
-                    user.end,
-                    user.result,
+                    action.name,
+                    action.begin,
+                    action.end,
+                    action.result,
                     action.resources_win,
                     action.resources_lose,
                     action.ship_lose,
                     action.money_win,
-                    action.money_lose
+                    action.money_lose,
+                    action.history
                 ],
                 (err, result) => {
                     if(err) reject(err)
