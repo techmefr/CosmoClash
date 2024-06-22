@@ -53,7 +53,7 @@ export default class ActionModel extends AbstractModels {
             if(key !== Object.keys(action)[Object.keys(action).length - 1])
                 sql += ` SET ${ key.toString() } = ?, `;
             else
-                sql+= `${ key.toString()} = ? `;
+                sql+= `SET ${ key.toString()} = ? `;
         }
         sql += 'WHERE id = ?';
         return new Promise((resolve, reject) => {

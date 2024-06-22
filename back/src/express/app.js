@@ -22,7 +22,7 @@ const app = http2Express(express)
     .use(bodyParser.json())
     .use(setHeader)
     .use('/', authRouter)
-    .use('/api', verifyBearerToken) // @todo after verifyBearerToken adding verifyToken
+    // .use('/api', verifyBearerToken) // @todo after verifyBearerToken adding verifyToken
     .use('/api', apiRouter);
 
 export default app;
