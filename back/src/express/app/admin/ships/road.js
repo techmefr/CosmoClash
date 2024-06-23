@@ -1,13 +1,12 @@
 import express from "express";
 import {
     index,
-    addedPositionToShip,
     findShips,
     createShips,
     putShips,
-    patchShips,
-    deleteShip
-} from "./controller_ship.js";
+    patchOneShip,
+    shipDelete
+} from "./controller.js";
 
 export const shipsRoad = express.Router();
 
@@ -16,8 +15,6 @@ shipsRoad
     .get('/:id', findShips)
     .post('/created', createShips)
     .put('/updated/:id', putShips)
-    .patch('/updated/:id', patchShips)
-    .patch('/added/positions/:id', addedPositionToShip)
-    .delete('/:id', deleteShip);
+    .patch('/updated/:id', patchOneShip)
 
 export default shipsRoad;

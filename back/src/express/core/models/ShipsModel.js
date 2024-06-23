@@ -62,6 +62,26 @@ export default class ShipsModel extends AbstractModels {
                 })
         });
     }
+
+    patchShips(ship, id) {
+        let sql = 'UPDATE ships ';
+        let values = Object.values(ship);
+        for (const [key] of Object.entries(ship)) {
+            if(key !== Object.keys(ship)[Object.keys(ship).length - 1])
+                sql += ` SET ${ key.toString() } = ?, `;
+            else
+                sql+= `${ key.toString()} = ? `;
+        }
+        sql += 'WHERE id = ?';
+        return new Promise((resolve, reject) => {
+            this.connexion.query(sql, [...values, id], (err, result) => {
+                if(err) {
+                    reject(err);
+                }
+                resolve(result);
+            })
+        })
+    }
    
     deleteShips(id) {
         return new Promise((resolve, reject) => {

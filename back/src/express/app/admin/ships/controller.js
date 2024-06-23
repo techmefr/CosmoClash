@@ -1,6 +1,6 @@
 import {
     deleteShip,
-    patchShip,
+    patchShips,
     shipCreated,
     shipFind,
     shipFindAll,
@@ -101,8 +101,8 @@ export const putShips = (req, res) => {
         });
 }
 
-export const patchShips = (req, res) => {
-    patchShip(req.body, req.params.id)
+export const patchOneShip = (req, res) => {
+    patchShips(req.body, req.params.id)
         .then(resultData => {
             if (resultData) {
                 res.status(200).send(JSON.stringify({
@@ -124,7 +124,7 @@ export const patchShips = (req, res) => {
         });
 }
 
-export const deleteShip = (req, res) => {
+export const shipDelete = (req, res) => {
     deleteShip(req.params.id)
         .then(() => {
             res.status(200).send(JSON.stringify({
