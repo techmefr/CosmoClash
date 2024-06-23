@@ -1,7 +1,6 @@
 import {
     deleteShip,
     patchShip,
-    patchPositionShip,
     ShipCreated,
     shipFind,
     shipFindAll,
@@ -132,29 +131,6 @@ export const deleteShip = (req, res) => {
                 message: 'Deleted successfully',
                 status: res.statusCode
             }));
-        })
-        .catch(err => {
-            res.status(400).send(JSON.stringify({
-                message: 'Bad request: ' + err.message,
-                status: res.statusCode
-            }));
-        });
-}
-
-export const addedPositionToShip = (req, res) => {
-    patchPositionShip(req.body, req.params.id)
-        .then(resultData => {
-            if (resultData) {
-                res.status(200).send(JSON.stringify({
-                    message: 'Updated all positions of the ship',
-                    status: res.statusCode
-                }));
-            } else {
-                res.status(500).send(JSON.stringify({
-                    message: 'Internal Server Error: bad credentials',
-                    status: res.statusCode
-                }));
-            }
         })
         .catch(err => {
             res.status(400).send(JSON.stringify({

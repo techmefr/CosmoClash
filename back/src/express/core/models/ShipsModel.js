@@ -7,7 +7,7 @@ export default class ShipsModel extends AbstractModels {
     readAllShip() {
         return new Promise((resolve, reject) => {
             this.connexion.query(
-                `SELECT * FROM users`,
+                `SELECT * FROM ships `,
                 (err, result) => {
                     if (err) reject(err);
                     resolve(result);
@@ -19,12 +19,9 @@ export default class ShipsModel extends AbstractModels {
         return new Promise((resolve, reject) => {
             this.connexion.query(`
                 SELECT 
-                    p.name,
-                    pos.coord_x AS pos_coordX,
-                    pos.coord_y AS pos_coordY
-                FROM planets p
-                    JOIN positions pos on p.position_id = pos.id
-                WHERE p.id = ?`,
+                    ships.name,
+                FROM ships 
+                WHERE ships.id = ?`,
                 [id],
                 (err, result) => {
                     if(err) reject(err)
@@ -33,15 +30,15 @@ export default class ShipsModel extends AbstractModels {
             );
         });
     }
-    createNewPlanets (planet) {
+    createNewShip (ships) {
         return new Promise((resolve, reject) => {
             this.connexion.query(
                 `
-                    INSERT INTO planets
+                    INSERT INTO ships
                         (name)
                     VALUE(?)
                 `,
-                [planet.name],
+                [ships.name],
                 (err, result) => {
                     if(err) reject(err)
                     resolve(result);
@@ -49,12 +46,12 @@ export default class ShipsModel extends AbstractModels {
             );
         });
     }
-    putPlanets(planet, id) {
+    putShips(ship, id) {
         return new Promise((resolve, reject) => {
             this.connexion.query(
-                `UPDATE planets SET name=? WHERE id = ?`,
+                `UPDATE ships SET name=? WHERE id = ?`,
                 [
-                    action.name,
+                    ship.name,
                     id
                 ],
                 (err, result) => {
@@ -65,17 +62,10 @@ export default class ShipsModel extends AbstractModels {
                 })
         });
     }
-    updatePositionId(planet, id) {
+   
+    deleteShips(id) {
         return new Promise((resolve, reject) => {
-            this.connexion.query('UPDATE planets SET position_id = ? WHERE planets.id = ?', [planet.positionId, id], (err, result) => {
-                if(err) reject(err)
-                resolve(result);
-            })
-        })
-    }
-    deletePlanets(id) {
-        return new Promise((resolve, reject) => {
-            this.connexion.query('DELETE FROM planets WHERE id=?', [id], (err, result) => {
+            this.connexion.query('DELETE FROM ships WHERE id=?', [id], (err, result) => {
                 if(err) reject(err)
                 resolve(result);
             })
