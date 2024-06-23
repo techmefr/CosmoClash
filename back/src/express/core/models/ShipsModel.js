@@ -1,0 +1,84 @@
+import AbstractModels from "../abstract/AbstractModels.js";
+
+export default class ShipsModel extends AbstractModels {
+    constructor() {
+        super();
+    }
+    readAllShip() {
+        return new Promise((resolve, reject) => {
+            this.connexion.query(
+                `SELECT * FROM users`,
+                (err, result) => {
+                    if (err) reject(err);
+                    resolve(result);
+                }
+            )
+        })
+    }
+    readOneShip(id) {
+        return new Promise((resolve, reject) => {
+            this.connexion.query(`
+                SELECT 
+                    p.name,
+                    pos.coord_x AS pos_coordX,
+                    pos.coord_y AS pos_coordY
+                FROM planets p
+                    JOIN positions pos on p.position_id = pos.id
+                WHERE p.id = ?`,
+                [id],
+                (err, result) => {
+                    if(err) reject(err)
+                    resolve(result);
+                }
+            );
+        });
+    }
+    createNewPlanets (planet) {
+        return new Promise((resolve, reject) => {
+            this.connexion.query(
+                `
+                    INSERT INTO planets
+                        (name)
+                    VALUE(?)
+                `,
+                [planet.name],
+                (err, result) => {
+                    if(err) reject(err)
+                    resolve(result);
+                }
+            );
+        });
+    }
+    putPlanets(planet, id) {
+        return new Promise((resolve, reject) => {
+            this.connexion.query(
+                `UPDATE planets SET name=? WHERE id = ?`,
+                [
+                    action.name,
+                    id
+                ],
+                (err, result) => {
+                    if(err) {
+                        reject(err);
+                    }
+                    resolve(result);
+                })
+        });
+    }
+    updatePositionId(planet, id) {
+        return new Promise((resolve, reject) => {
+            this.connexion.query('UPDATE planets SET position_id = ? WHERE planets.id = ?', [planet.positionId, id], (err, result) => {
+                if(err) reject(err)
+                resolve(result);
+            })
+        })
+    }
+    deletePlanets(id) {
+        return new Promise((resolve, reject) => {
+            this.connexion.query('DELETE FROM planets WHERE id=?', [id], (err, result) => {
+                if(err) reject(err)
+                resolve(result);
+            })
+        })
+    }
+}
