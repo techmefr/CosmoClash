@@ -15,7 +15,7 @@ export default class ShipsModel extends AbstractModels {
             )
         })
     }
-    readOneShip(id) {
+    readOneShips(id) {
         return new Promise((resolve, reject) => {
             this.connexion.query(`
                 SELECT 

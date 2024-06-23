@@ -1,11 +1,11 @@
 import {
     deleteShip,
     patchShip,
-    ShipCreated,
+    shipCreated,
     shipFind,
     shipFindAll,
     putShip
-} from "../../../core/services/ShipsServices.js";
+} from "../../../core/services/ShipServices.js";
 
 export const index = (req, res) => {
     shipFindAll()
@@ -56,7 +56,7 @@ export const findShips = (req, res) => {
 }
 
 export const createShips = (req, res) => {
-    ShipCreated(req.body)
+    shipCreated(req.body)
         .then(dataResult => {
             if (dataResult) {
                 res.status(201).send(JSON.stringify({
