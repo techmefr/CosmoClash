@@ -1,10 +1,47 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App";
+import Dashboard from "./pages/DashboardPage";
+import Planet from "./pages/PlanetPage";
+import Market from "./pages/MarketPage";
+import SearchAlliance from "./pages/SearchAlliancePage";
+import ToolPage from "./pages/ToolPage";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "game",
+        element: <Dashboard />,
+      },
+      {
+        path: "planet",
+        element: <Planet />,
+      },
+      {
+        path: "market",
+        element: <Market />,
+      },
+      {
+        path: "alliance",
+        element: <SearchAlliance />,
+      },
+      {
+        path: "tool",
+        element: <ToolPage />,
+      },
+    ],
+  },
+]);
+
+const container = document.getElementById("root");
+const root = createRoot(container);
+
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
