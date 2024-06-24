@@ -13,9 +13,9 @@ const actionRoad = express.Router();
 actionRoad
     .get('/', index)
     .get('/:id', findActions)
-    .post('/actions/created', createActions)
-    .put('/actions/updated/:id', putActions)
-    .patch('/actions/updated/:id', patchActions)
-    .delete('/actions/:id', deleteActions);
+    .post('/created', createActions)
+    .put('/updated/:id', putActions)
+    .patch('/updated/:id', patchActions)
+    .delete('/:id', deleteActions);
 
 export default actionRoad;
