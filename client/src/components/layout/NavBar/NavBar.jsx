@@ -61,7 +61,7 @@ function NavBar() {
             height={24}
             fillColor="#333333"
           />
-          <span className="nav-text">Tool</span>
+          <span className="nav-text">Réglages</span>
         </div>
       </Link>
     </nav>

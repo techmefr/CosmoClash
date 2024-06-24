@@ -6,7 +6,7 @@ import Dashboard from "./pages/DashboardPage";
 import Planet from "./pages/PlanetPage";
 import Market from "./pages/MarketPage";
 import SearchAlliance from "./pages/SearchAlliancePage";
-import ToolPage from "./pages/ToolPage";
+import Tool from "./pages/ToolPage";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "tool",
-        element: <ToolPage />,
+        element: <Tool />,
       },
     ],
   },
