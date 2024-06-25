@@ -15,7 +15,7 @@ function NavBar() {
             className="nav-icon"
             width={24}
             height={24}
-            fillColor="#333333"
+            fillColor="#FFFFFF"
           />
           <span className="nav-text">Dashboard</span>
         </div>
@@ -26,7 +26,7 @@ function NavBar() {
             className="nav-icon"
             width={24}
             height={24}
-            fillColor="#333333"
+            fillColor="#FFFFFF"
           />
           <span className="nav-text">Planètes</span>
         </div>
@@ -37,7 +37,7 @@ function NavBar() {
             className="nav-icon"
             width={24}
             height={24}
-            fillColor="#333333"
+            fillColor="#FFFFFF"
           />
           <span className="nav-text">Achat</span>
         </div>
@@ -48,7 +48,7 @@ function NavBar() {
             className="nav-icon"
             width={24}
             height={24}
-            fillColor="#4A90E2"
+            fillColor="#FFFFFF"
           />
           <span className="nav-text">Alliance</span>
         </div>
@@ -59,7 +59,7 @@ function NavBar() {
             className="nav-icon"
             width={24}
             height={24}
-            fillColor="#333333"
+            fillColor="#FFFFFF"
           />
           <span className="nav-text">Réglages</span>
         </div>

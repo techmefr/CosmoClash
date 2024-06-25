@@ -4,13 +4,13 @@
   align-items: center;
   position: fixed;
   width: 100%;
-  background-color: #f8f9fa;
+  background-color: #333333;
   z-index: 1000;
 }
 
 .nav-item {
   text-decoration: none;
-  color: #333;
+  color: white;
   padding: 10px;
 }
 
@@ -22,6 +22,10 @@
 
 .nav-icon {
   margin-right: 8px;
+}
+
+.nav-text {
+  margin-left: 1rem;
 }
 
 /* Styles pour mobile et tablette */
