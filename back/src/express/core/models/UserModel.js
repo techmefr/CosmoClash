@@ -53,7 +53,7 @@ export default class UserModel extends AbstractModels {
             if(key !== Object.keys(user)[Object.keys(user).length - 1])
                 sql += ` SET ${ key.toString() } = ?, `;
             else
-                sql+= `${ key.toString()} = ? `;
+                sql+= `SET ${ key.toString()} = ? `;
         }
         sql += 'WHERE id = ?';
         return new Promise((resolve, reject) => {

@@ -1,5 +1,13 @@
-import Login from "./components/forms/Login";
+import NavBar from "./components/layout/NavBar/NavBar.jsx";
+import Loading from "./components/navigation/Loading/Loading.jsx";
 
-export default function App() {
-  return <Login />;
+function App() {
+  return (
+    <>
+      <NavBar />
+      <Loading />
+    </>
+  );
 }
+
+export default App;

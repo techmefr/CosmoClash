@@ -9,7 +9,8 @@
   "author": "Franck, Gaetan, Messaoud, Sonia",
   "license": "ISC",
   "dependencies": {
-    "openai": "^4.51.0"
+    "openai": "^4.51.0",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "jest": "^29.7.0"

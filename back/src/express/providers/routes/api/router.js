@@ -1,10 +1,11 @@
 import express from "express";
-import actionRoad from "./../../../app/admin/actions/road.js";
-import planetRoad from "./../../../app/admin/planets/road.js";
+import {AdminShipsRoad, AdminActionsRoad, AdminPlanetsRoad, AdminResourcesRoad} from "../../../app/admin/index.js";
 const apiRouter = express.Router();
 
 apiRouter
-    .use('/actions', actionRoad)
-    .use('/planets', planetRoad);
+    .use('/actions', AdminActionsRoad)
+    .use('/planets', AdminPlanetsRoad)
+    .use("/ships", AdminShipsRoad)
+    .use('/resources', AdminResourcesRoad);
 
 export default apiRouter;
