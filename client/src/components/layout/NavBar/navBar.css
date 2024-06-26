@@ -1,0 +1,55 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: #333333;
+  z-index: 1000;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-icon {
+  margin-right: 8px;
+}
+
+.nav-text {
+  margin-left: 1rem;
+}
+
+/* Styles pour mobile et tablette */
+@media (max-width: 768px) {
+  .navbar {
+    top: auto;
+    bottom: 0;
+  }
+
+  .nav-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-icon {
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+}
+
+/* Styles pour PC */
+@media (min-width: 769px) {
+  .navbar {
+    top: 0;
+    bottom: auto;
+  }
+}
