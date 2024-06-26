@@ -1,14 +1,17 @@
 import "./App.css";
-// import GamePage from "./pages/GamePage/GamePage";
 import NavBar from "./components/layout/NavBar/NavBar.jsx";
 import Loading from "./components/navigation/Loading/Loading.jsx";
+import { Outlet, useNavigation } from "react-router-dom";
 
 function App() {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+
   return (
     <>
-      {/* <GamePage /> */}
       <NavBar />
-      <Loading />
+      {isLoading && <Loading />}
+      <Outlet />
     </>
   );
 }

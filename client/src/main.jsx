@@ -2,11 +2,11 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import Dashboard from "./pages/DashboardPage";
 import Planet from "./pages/PlanetPage";
 import Market from "./pages/MarketPage";
 import SearchAlliance from "./pages/SearchAlliancePage";
 import Tool from "./pages/ToolPage";
+import GamePage from "./pages/GamePage/GamePage";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "game",
-        element: <Dashboard />,
+        element: <GamePage />,
       },
       {
         path: "planet",
