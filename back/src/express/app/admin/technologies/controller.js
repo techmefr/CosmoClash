@@ -78,7 +78,7 @@ export const createTechno = (req, res) => {
         });
 }
 
-export const puttechno = (req, res) => {
+export const putTechnoController = (req, res) => {
     putTechno(req.body, req.params.id)
         .then(resultData => {
             if (resultData) {

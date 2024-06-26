@@ -1,20 +1,19 @@
 import express from "express";
 import {
     index,
-    findShips,
-    createShips,
-    putShips,
-    patchOneShip,
-    shipDelete
+    findTechno,
+    createTechno,
+    putTechnoController,
+    patchOneTechno
 } from "./controller.js";
 
 export const shipsRoad = express.Router();
 
 shipsRoad
     .get('/', index)
-    .get('/:id', findShips)
-    .post('/created', createShips)
-    .put('/updated/:id', putShips)
-    .patch('/updated/:id', patchOneShip)
+    .get('/:id', findTechno)
+    .post('/created', createTechno)
+    .put('/updated/:id', putTechnoController)
+    .patch('/updated/:id', patchOneTechno)
 
 export default shipsRoad;
