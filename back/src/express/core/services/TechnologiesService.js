@@ -1,5 +1,3 @@
-import { technologiesModel } from "../constants/index.js";
-
 export const technoFindAll = () => technologieModel.readAllTechnologies().then();
 export const technoFind = id => technologieModel.readOneTechnologie(id).then();
 export const technoCreated = () => technologieModel.createNewTechnologies (technologie).then();
