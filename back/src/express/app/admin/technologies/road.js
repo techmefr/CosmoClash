@@ -7,13 +7,13 @@ import {
     patchOneTechno
 } from "./controller.js";
 
-export const shipsRoad = express.Router();
+export const technologiesRoad = express.Router();
 
-shipsRoad
+technologiesRoad
     .get('/', index)
     .get('/:id', findTechno)
     .post('/created', createTechno)
     .put('/updated/:id', putTechnoController)
     .patch('/updated/:id', patchOneTechno)
 
-export default shipsRoad;
+export default technologiesRoad;

@@ -14,6 +14,7 @@ export default class PlanetModel extends AbstractModels {
                 FROM planets p
                     JOIN positions pos on p.position_id = pos.id`,
                 (err, result) => {
+                    console.log(err);
                     if (err) reject(err);
                     resolve(result);
                 }
