@@ -1,14 +1,14 @@
 import {
-    technoFindAll,
-    technoFind,
-    technoCreated,
-    putTechno,
-    patchTechno,
-    deleteTechno
-} from "../../../core/services/TechnologiesService.js";
+    positionFindAll,
+    positionFind,
+    positionCreated,
+    putPosition,
+    patchPosition,
+    deletePosition
+} from "../../../core/services/positionService.js";
 
 export const index = (req, res) => {
-    technoFindAll()
+    positionFindAll()
         .then(dataResult => {
             if (dataResult.length > 0) {
                 res.status(200).send(JSON.stringify({
@@ -31,18 +31,18 @@ export const index = (req, res) => {
         });
 }
 
-export const findTechno = (req, res) => {
-    technoFind(req.params.id)
+export const findPosition = (req, res) => {
+    positionFind(req.params.id)
         .then(dataResult => {
-            if (dataResult) {
+            if (dataResult[0]) {
                 res.status(200).send(JSON.stringify({
                     message: 'Ok',
-                    data: dataResult,
+                    data: dataResult[0],
                     status: res.statusCode
                 }));
             } else {
                 res.status(404).send(JSON.stringify({
-                    message: 'Not Found: Ship does not exist',
+                    message: 'Position number ' + req.params.id + ' not found',
                     status: res.statusCode
                 }));
             }
@@ -55,8 +55,8 @@ export const findTechno = (req, res) => {
         });
 }
 
-export const createTechno = (req, res) => {
-    technoCreated(req.body)
+export const createPosition = (req, res) => {
+    positionCreated(req.body)
         .then(dataResult => {
             if (dataResult) {
                 res.status(201).send(JSON.stringify({
@@ -78,8 +78,8 @@ export const createTechno = (req, res) => {
         });
 }
 
-export const putTechnoController = (req, res) => {
-    putTechno(req.body, req.params.id)
+export const putPositionController = (req, res) => {
+    putPosition(req.body, req.params.id)
         .then(resultData => {
             if (resultData) {
                 res.status(200).send(JSON.stringify({
@@ -101,8 +101,8 @@ export const putTechnoController = (req, res) => {
         });
 }
 
-export const patchOneTechno = (req, res) => {
-    patchTechno(req.body, req.params.id)
+export const patchOnePosition = (req, res) => {
+    patchPosition(req.body, req.params.id)
         .then(resultData => {
             if (resultData) {
                 res.status(200).send(JSON.stringify({
@@ -124,8 +124,8 @@ export const patchOneTechno = (req, res) => {
         });
 }
 
-export const shipDelete = (req, res) => {
-    deleteTechno(req.params.id)
+export const positionDelete = (req, res) => {
+    deletePosition(req.params.id)
         .then(() => {
             res.status(200).send(JSON.stringify({
                 message: 'Deleted successfully',

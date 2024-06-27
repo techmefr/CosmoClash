@@ -1,11 +1,20 @@
 import "./App.css";
 import NavBar from "./components/layout/NavBar/NavBar.jsx";
-import Loading from "./components/navigation/Loading/Loading.jsx";
 import { Outlet, useNavigation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Loading from "./components/navigation/Loading/Loading.jsx";
 
 function App() {
   const navigation = useNavigation();
-  const isLoading = navigation.state === "loading";
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("state", (state) => {
+      setIsLoading(state === "loading");
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <>

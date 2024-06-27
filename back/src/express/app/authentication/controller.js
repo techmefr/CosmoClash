@@ -11,7 +11,6 @@ export const register = (req, res) => {
 }
 
 export const login = (req, res) => {
-
     userFindByEmail(req.body.email)
         .then(user => {
             if (!user) {
@@ -27,7 +26,7 @@ export const login = (req, res) => {
                         }));
                     res.status(200).json({
                         message: "ok", 
-                        token: jsonWebToken.createToken({userId: user.id, isAdmin: user.is_admin}), 
+                        token: jsonWebToken.createToken({userId: user[0].id, isAdmin: user[0].is_admin}),
                         status: res.statusCode
                     });
                 })

@@ -11,7 +11,7 @@ export const index = (req, res) => {
     .then(dataResult => {
         if(dataResult.length > 0) {
             res.status(200).send(JSON.stringify({
-                message: 'Ok', data: data,
+                message: 'Ok', data: dataResult,
                 status: res.statusCode
             }));
         } else {
@@ -34,7 +34,7 @@ export const findActions = (req, res) => {
     .then(dataResult => {
         if(dataResult.length > 0) {
             res.status(200).send(JSON.stringify({
-                message: 'Ok', data: data,
+                message: 'Ok', data: dataResult[0],
                 status: res.statusCode
             }));
         } else {
