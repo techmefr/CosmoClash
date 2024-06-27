@@ -170,3 +170,20 @@ button:hover::before {
   transition: all 1s ease-in-out;
   border-bottom: 1px solid hsl(221, 26%, 43%);
 }
+
+/* REGISTER */
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100svh;
+}
+
+.registerIMG {
+  width: 50%;
+}
+
+span {
+  color: #9fc4d0;
+}
