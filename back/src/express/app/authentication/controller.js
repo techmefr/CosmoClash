@@ -11,7 +11,6 @@ export const register = (req, res) => {
 }
 
 export const login = (req, res) => {
-    console.log(req.body.email);
     userFindByEmail(req.body.email)
         .then(user => {
             if (!user) {
