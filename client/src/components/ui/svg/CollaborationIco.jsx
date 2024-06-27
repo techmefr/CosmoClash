@@ -1,10 +1,6 @@
 import PropTypes from "prop-types";
 
-function CollaborationIcon({
-  width = 512,
-  height = 512,
-  fillColor = "#33CCCC",
-}) {
+function CollaborationIco({ width = 50, height = 50, fillColor = "#33CCCC" }) {
   return (
     <svg
       version="1.1"
@@ -34,10 +30,10 @@ function CollaborationIcon({
   );
 }
 
-CollaborationIcon.propTypes = {
+CollaborationIco.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   fillColor: PropTypes.string,
 };
 
-export default CollaborationIcon;
+export default CollaborationIco;
