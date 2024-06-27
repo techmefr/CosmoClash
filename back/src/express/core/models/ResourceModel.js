@@ -49,7 +49,6 @@ export default class ResourceModel extends AbstractModels {
                 sql+= `SET ${ key.toString()} = ? `;
         }
         sql += 'WHERE id = ?';
-        console.log(sql);
         return new Promise((resolve, reject) => {
             this.connexion.query(sql, [...values, id], (err, result) => {
                 if(err) {

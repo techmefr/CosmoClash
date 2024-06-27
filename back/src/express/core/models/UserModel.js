@@ -15,11 +15,9 @@ export default class UserModel extends AbstractModels {
         });
     }
     readOneUsersByIdOrEmail(value) {
-        console.log(value);
         let sql = 'SELECT * FROM users WHERE email = ?';
         return new Promise((resolve, reject) => {
             this.connexion.query(sql, [value], (err, result) => {
-                console.log(err);
                 if(err) reject(err)
                 resolve(result);
             });
