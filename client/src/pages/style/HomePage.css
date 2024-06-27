@@ -1,0 +1,18 @@
+.homePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: screen;
+}
+
+.homePageIMG {
+  width: 50%;
+}
+
+.homePageCustomBTN {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
