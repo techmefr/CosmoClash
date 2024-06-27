@@ -18,7 +18,7 @@ export const index = (req, res) => {
                 }));
             } else {
                 res.status(404).send(JSON.stringify({
-                    message: 'Not Found: Ships do not exist',
+                    message: 'Not Found: position do not exist',
                     status: res.statusCode
                 }));
             }
