@@ -2,7 +2,6 @@ import { userCreated, userFindByEmail } from "../../core/services/UserServices.j
 import { bcryptUtils, jsonWebToken } from "../../core/utils/index.js";
 
 export const register = (req, res) => {
-    console.log(req.body);
     userCreated(req.body).then(() => {
         res.status(201).send(JSON.stringify({message: 'Created', status: res.statusCode}))
     }).catch(err => {
