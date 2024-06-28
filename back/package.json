@@ -1,0 +1,28 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "jest",
+        "faker": "node src/database/seed.js",
+        "start-dev": "nodemon src/server/server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@faker-js/faker": "^8.4.1",
+        "bcrypt": "^5.1.1",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "http2-express-bridge": "^1.0.7",
+        "jsonwebtoken": "^9.0.2",
+        "kill-port": "^2.0.1",
+        "morgan": "^1.10.0",
+        "mysql2": "^3.10.0",
+        "nodemon": "^3.1.3"
+    }
+}
