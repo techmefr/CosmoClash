@@ -21,10 +21,6 @@ export default class AllianceModel extends AbstractModels {
         });
     }
     createNewAlliance (alliance) {
-        console.log([
-            alliance.name,
-            alliance.color
-        ]);
         return new Promise((resolve, reject) => {
             return this.connexion.query(
                 `
@@ -36,7 +32,6 @@ export default class AllianceModel extends AbstractModels {
                     alliance.color
                 ],
                 (err, result) => {
-                    console.log("err", result);
                     if(err) reject(err)
                     resolve(result);
                 }
@@ -53,7 +48,6 @@ export default class AllianceModel extends AbstractModels {
                 sql+= `SET ${ key.toString()} = ? `;
         }
         sql += 'WHERE id = ?';
-        console.log(sql);
         return new Promise((resolve, reject) => {
             this.connexion.query(sql, [...values, id], (err, result) => {
                 if(err) {

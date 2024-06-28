@@ -10,5 +10,5 @@ export const verifyJwtToken = (req, res, next) => {
             }).catch(err =>
             res.status(401).json({message: err.message, status: res.statusCode})
         )
-    }).catch(err => console.log(err));
+    }).catch(err => res.status(500).json({message: err.message, status: res.statusCode}));
 }

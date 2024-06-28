@@ -9,7 +9,6 @@ import {
 export const index = (req, res) => {
     planetFindAll()
         .then(dataResult => {
-            console.log(dataResult);
             if(dataResult.length > 0) {
                 res.status(200).send(JSON.stringify({
                     message: 'Ok', data: dataResult,
