@@ -73,7 +73,7 @@ export const patchAlliances = (req, res) => {
     allianceUpdateOneData(req.body, req.params.id)
         .then(() => {
             res.status(201).send(JSON.stringify({
-                message: 'Updated specific alliance data',
+                message: 'Updated specific alliance migrate',
                 status: res.statusCode
             }));
         })

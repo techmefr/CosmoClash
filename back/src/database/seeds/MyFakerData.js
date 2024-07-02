@@ -1,24 +1,18 @@
 import { faker } from '@faker-js/faker';
+import Config from "../../config/index.js";
 
 export default class MyFakerData {
     constructor() { }
-    createActions() {
+     createUsers(incrementor) {
         return {
-            name: faker.number.int(),
-            begin: faker.date.anytime(),
-            end: faker.date.future(),
-            result: faker.number.int(),
-            resources_win: faker.number.int(),
-            resources_lose: faker.number.int(),
-            ship_lose: faker.number.int(),
-            money_win: faker.number.int(),
-            money_lose: faker.number.int(),
-            history: faker.lorem.text()
-        };
-    }
+            username: faker.internet.userName(),
+            email: faker.person.lastName().toLowerCase() + '.' + faker.person.lastName().toLowerCase() + incrementor + '@gmail.com',
+            password: faker.person.lastName().toLowerCase() + '.' + faker.person.lastName().toLowerCase() + incrementor,
+        }
+     }
     createPlanet() {
         return {
-            name: faker.person.lastName()
+            name: faker.person.lastName(Config.database.nbUsers)
         }
     }
 }
