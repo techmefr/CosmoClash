@@ -39,16 +39,38 @@ export default class MyFaker {
   }
 
   async planetRunner() {
+    const planetTypes = await planetTypeModel.getAllPlanetTypes();
+    if (planetTypes.length !== 7) {
+      throw new Error("There should be exactly 7 planet types.");
+    }
+
     const positions = await positionModel.getAllPositions();
     if (positions.length < 100) {
       throw new Error("Not enough positions available to create 100 planets.");
     }
+
     const planets = [];
-    for (let i = 0; i < 100; i++) {
-      const planet = this.#fakerData.createPlanet();
-      planet.position = positions[i];
-      planets.push(planetModel.createNewPlanets(planet));
+    let positionIndex = 0;
+
+    for (const planetType of planetTypes) {
+      for (let i = 0; i < 14; i++) {
+        if (positionIndex >= positions.length) {
+          throw new Error(
+            "Not enough positions available to create all planets."
+          );
+        }
+
+        const planet = {
+          name: `${planetType.type} Planet ${faker.unique(faker.random.word)}`,
+          type_id: planetType.id,
+          position_id: positions[positionIndex].id,
+        };
+
+        planets.push(planetModel.createNewPlanet(planet));
+        positionIndex++;
+      }
     }
+
     await Promise.all(planets);
     console.log("planet finished");
     return planets;
