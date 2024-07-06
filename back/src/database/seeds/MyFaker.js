@@ -29,8 +29,7 @@ export default class MyFaker {
     const users = [];
     for (let i = start; i <= maxUser; i++) {
       let user = this.#fakerData.createUsers(i);
-      const hash = await bcryptUtils.createPasword(user.password);
-      user.password = hash;
+      user.password = await bcryptUtils.createPasword(user.password);
       users.push(userModel.createNewUser(user));
     }
     await Promise.all(users);
