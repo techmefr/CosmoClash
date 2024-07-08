@@ -1,16 +1,14 @@
 import { faker } from "@faker-js/faker";
 import MyFakerData from "./MyFakerData.js";
 import {
-  actionModel,
-  planetModel,
-  userModel,
-  positionModel,
-  allianceModel,
-  allianceMembersModel,
-  allianceMessagesModel,
-  technologyModel,
-  shipModel,
-  planetTypeModel,
+    actionModel,
+    planetModel,
+    userModel,
+    positionModel,
+    allianceModel,
+    technologieModel,
+    shipModel,
+    planetTypeModel,
 } from "../../express/core/constants/index.js";
 import { bcryptUtils } from "../../express/core/utils/index.js";
 import Config from "../../express/core/config/index.js";
@@ -43,7 +41,7 @@ export default class MyFaker {
       throw new Error("There should be exactly 7 planet types.");
     }
 
-    const positions = await positionModel.getAllPositions();
+    const positions = await positionModel.readAllPosition();
     if (positions.length < 100) {
       throw new Error("Not enough positions available to create 100 planets.");
     }
@@ -141,7 +139,7 @@ export default class MyFaker {
     const technologies = this.createFakeData(
       this.#fakerData.createTechnologies(),
       maxTechnologies
-    ).map((technology) => technologyModel.createNewTechnology(technology));
+    ).map((technology) => technologieModel.createNewTechnology(technology));
     await Promise.all(technologies);
     console.log("technologies finished");
   }
