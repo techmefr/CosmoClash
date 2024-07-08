@@ -1,5 +1,10 @@
-function Dashboard() {
-  return <></>;
+
+export default function DashboardPage() {
+  return (
+    <div>
+      <h1>dashboard</h1>
+      
+    </div>
+  )
 }
 
-export default Dashboard;
