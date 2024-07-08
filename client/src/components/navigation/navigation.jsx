@@ -14,6 +14,8 @@ import ProfilePage from '../../pages/ProfilePage';
 import NavBar from '../layout/NavBar/NavBar';
 import SearchAlliance from '../../pages/SearchAlliancePage/SearchAlliancePage';
 import ToolPage from '../../pages/ToolPage/ToolPage';
+import Register from '../forms/Register';
+import Login from '../forms/Login';
 
 export const Navigation = () => {
 
@@ -37,6 +39,8 @@ export const Navigation = () => {
         <Route path="/alliance" element={<SearchAlliance />} />
         <Route path="/profil" element={<ProfilePage />} />
         <Route path="/tool" element={<ToolPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
 
     </Routes>
 
