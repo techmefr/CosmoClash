@@ -1,8 +1,11 @@
 import AbstractModels from "../abstract/AbstractModels.js";
 
 export default class AllianceModel extends AbstractModels {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
+    // }
+    constructor() {
+        super();
     }
     readAllAlliances() {
         return new Promise((resolve, reject) => {
