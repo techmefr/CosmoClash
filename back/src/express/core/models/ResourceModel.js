@@ -1,8 +1,8 @@
 import AbstractModels from "../abstract/AbstractModels.js";
 
 export default class ResourceModel extends AbstractModels {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
     }
     readAllResources() {
         return new Promise((resolve, reject) => {
