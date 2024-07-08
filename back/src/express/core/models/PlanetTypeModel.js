@@ -20,6 +20,14 @@ export default class PlanetTypeModel extends AbstractModels {
             })
         })
     }
+    createNewPlanetType(planetType) {
+        return new Promise((resolve, reject) => {
+            this.connexion.query('INSERT INTO planet_type (type) VALUES (?)', [planetType.type], (err, result) => {
+                if(err) reject(err);
+                resolve(result);
+            });
+        })
+    }
     patchPlanetType(planetType, id) {
         let sql = 'UPDATE planet_type ';
         let values = Object.values(planetType);
