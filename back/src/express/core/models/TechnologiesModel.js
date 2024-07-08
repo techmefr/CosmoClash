@@ -18,8 +18,7 @@ export default class technologiesModel extends AbstractModels {
     readOneTechnologie(id) {
         return new Promise((resolve, reject) => {
             this.connexion.query(`
-                SELECT 
-                    Technologies.name,
+                SELECT Technologies.name 
                 FROM Technologies 
                 WHERE Technologies.id = ?`,
                 [id],
@@ -33,8 +32,7 @@ export default class technologiesModel extends AbstractModels {
     createNewTechnologies (technologie) {
         return new Promise((resolve, reject) => {
             this.connexion.query(
-                `
-                    INSERT INTO Technologies
+                `INSERT INTO Technologies
                         (name)
                     VALUE(?)
                 `,
