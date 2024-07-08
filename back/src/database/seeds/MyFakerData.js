@@ -20,19 +20,6 @@ export default class MyFakerData {
     };
   }
 
-  createPlanet() {
-    return {
-      name: faker.person.lastName() + " Planet",
-    };
-  }
-
-  createPosition() {
-    return {
-      coordX: faker.number.int({ min: 0, max: 9 }),
-      coordY: faker.number.int({ min: 0, max: 9 }),
-    };
-  }
-
   createAlliances() {
     return {
       name: faker.company.name() + " Alliance",
@@ -41,13 +28,6 @@ export default class MyFakerData {
         " in the vast expanse of space, uniting " +
         faker.word.words({ count: { min: 1, max: 3 } }) +
         " alien races.",
-    };
-  }
-
-  createAllianceMembers(userId, allianceId) {
-    return {
-      user_id: userId,
-      alliance_id: allianceId,
     };
   }
 
