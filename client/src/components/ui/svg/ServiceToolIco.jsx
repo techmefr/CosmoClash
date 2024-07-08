@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
 
-const ServiceToolIco = ({ width, height, fillColor }) => {
+function ServiceToolIco({
+  width,
+  height,
+  fillColor,
+  pathFillColor,
+}) {
   return (
     <svg
       width={width}
       height={height}
       viewBox="0 0 512 512"
-      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -15,15 +19,17 @@ const ServiceToolIco = ({ width, height, fillColor }) => {
             c-5.371-2.839-7.423-9.495-4.583-14.866c9.583-18.125,14.647-38.544,14.647-59.049c0-69.664-56.676-126.34-126.34-126.34
             S129.66,186.336,129.66,256S186.336,382.34,256,382.34c20.072,0,40.11-4.866,57.947-14.072c5.397-2.786,12.033-0.669,14.82,4.73
             c2.786,5.398,0.668,12.034-4.73,14.82C303.094,398.627,279.567,404.34,256,404.34z"
+        fill={pathFillColor || fillColor}
       />
     </svg>
   );
-};
+}
 
 ServiceToolIco.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   fillColor: PropTypes.string,
+  pathFillColor: PropTypes.string,
 };
 
 export default ServiceToolIco;
