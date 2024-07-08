@@ -58,7 +58,7 @@ export default class MyFaker {
         }
 
         const planet = {
-          name: `${planetType.type} Planet ${faker.unique(faker.random.word)}`,
+          name: `${planetType.type} Planet ${faker.unique(faker.unique.word)}`,
           type_id: planetType.id,
           position_id: positions[positionIndex].id,
         };
@@ -123,7 +123,7 @@ export default class MyFaker {
     const allianceMessages = [];
     users.forEach((user) => {
       const allianceId = alliances.find((alliance) =>
-        alliance.members.includes(user.id)
+        alliance.includes(user.id)
       ).id;
       const messageCount = faker.number.int({ min: 2, max: 5 });
       for (let i = 0; i < messageCount; i++) {
