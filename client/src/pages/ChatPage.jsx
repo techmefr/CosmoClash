@@ -1,6 +1,10 @@
 // TODO : Page de chat de l'alliance de l'utilisateur
 
-function ChatPage() {
-  return <></>;
+export default function ChatPage() {
+  return (
+    <div>
+      <h1>page chat</h1>
+    </div>
+  )
 }
-export default ChatPage;
+

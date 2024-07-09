@@ -1,1 +1,8 @@
-// TODO : A remplir avec la partie du dossier /legal
+
+export default function CommunityGuidelines() {
+  return (
+    <div>
+      <h1>page community</h1>
+    </div>
+  )
+}

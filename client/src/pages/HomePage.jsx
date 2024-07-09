@@ -3,6 +3,7 @@ import Starfield from "react-starfield";
 import CustomButton from "../components/ui/CustomButton";
 
 import "./style/HomePage.css";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -15,8 +16,8 @@ export default function HomePage() {
       />
       <img src={logo} alt="j" className="homePageIMG" />
       <div className="homePageCustomBTN">
-        <CustomButton customButtonName="S'ENREGISTRER" />
-        <CustomButton customButtonName="SE CONNECTER" />
+        <Link to="/register"> <CustomButton customButtonName="S'ENREGISTRER" /></Link>
+        <Link to="/login"><CustomButton customButtonName="SE CONNECTER" /></Link>
       </div>
     </div>
   );
