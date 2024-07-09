@@ -14,7 +14,7 @@ function CardComponent(
     return (
         <div className="card--planet--container">
             <div className="card--planet--icons">
-                <i className="fa-solid fa-globe"></i>
+                <i className="fa-solid fa-2x fa-globe"></i>
             </div>
             <div className="card--planet--informations">
                 <div className="container-tit">

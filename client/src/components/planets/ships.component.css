@@ -12,7 +12,7 @@ i {
         justify-content: center;
         align-items: center;
         h4 {
-            font-size: 1.15rem;
+            font-size: 24px;
         }
     }
     .container--ships--informations {
@@ -24,6 +24,9 @@ i {
         margin: auto auto 5%;
         div:last-child {
             margin-left: 5%;
+            color: #33CCCC;
+            font-weight: bolder;
+            font-size: 30px;
         }
     }
 }

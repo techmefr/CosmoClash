@@ -13,10 +13,12 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
+        div:first-child {
+            font-size: 16px;
+        }
         div:last-child {
             background-color: #303030;
-            margin-left: 5%;
+            margin-left: 1%;
         }
     }
     p {

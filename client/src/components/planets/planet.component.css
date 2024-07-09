@@ -1,4 +1,10 @@
-.planet-container {
-    width: 100%;
-    height: calc(93vh);
+::-webkit-scrollbar {
+    display: none;
+}
+
+.planet--container {
+    width: 400px;
+    margin: 0 0 2% 0;
+    overflow-y: scroll;
+    height: 93vh;
 }

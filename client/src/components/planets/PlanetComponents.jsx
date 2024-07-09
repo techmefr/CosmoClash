@@ -2,7 +2,7 @@ import './planet.component.css'
 import { CardComponent } from "@/components/planets/index.jsx";
 
 function PlanetComponents({planets}) {
-    return <div className="planet-container">
+    return <div className="planet--container">
         {
             planets.map(
                 planet => (
