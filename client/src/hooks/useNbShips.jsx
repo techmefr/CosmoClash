@@ -17,7 +17,9 @@ const useNbShips = () => {
                 }
             )
             .then((data) => setNbMaxShips(data.data.number_ship))
-            .catch(err => console.error(err.message));
+            .catch(err => console.error(err.message))
+    }, []);
+    useEffect(() => {
         planetService.all({
             'Content-type': 'application/json',
             Authorization: 'Bearer' + ' ' + token
@@ -38,7 +40,7 @@ const useNbShips = () => {
     const submit = () => {
         console.log('Ships: ', nbShips);
     }
-    return { nbMaxShips, setNbMaxShips,  nbShips, planets, addNumber, subNumber, submit }
+    return ({ nbMaxShips, setNbMaxShips, nbShips, planets, addNumber, subNumber, submit })
 };
 
 export default useNbShips;

@@ -1,14 +1,14 @@
 .card--planet--container {
-    width: 75%;
+    width: 365px;
     margin: 2% auto auto;
     border-radius: 15px;
-    background-color: #303030;
-    height: 150px;
+    background-color: #181818;
+    height: 86px;
     display: flex;
     flex-direction: row;
     .card--planet--icons {
-        width: 20%;
-        height: 150px;
+        width: calc(365px - 80%);
+        height: 86px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -34,7 +34,6 @@
             margin: auto;
             align-items: center;
             & div {
-                margin-top: 7%;
                 margin-right: 5%;
                 width: 15%;
                 display: flex;
