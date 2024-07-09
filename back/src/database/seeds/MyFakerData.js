@@ -1,117 +1,85 @@
-import { faker } from "@faker-js/faker";
-
 export default class MyFakerData {
-  constructor() {}
 
-  createUsers(incrementor) {
-    return {
-      username: faker.internet.userName(),
-      email:
-        faker.person.lastName().toLowerCase() +
-        "." +
-        faker.person.lastName().toLowerCase() +
-        incrementor +
-        "@gmail.com",
-      password:
-        faker.person.lastName().toLowerCase() +
-        "." +
-        faker.person.lastName().toLowerCase() +
-        incrementor,
-    };
-  }
-
-  createAlliances() {
-    return {
-      name: faker.company.name() + " Alliance",
-      description:
-        faker.lorem.sentence({ min: 10, max: 20 }) +
-        " in the vast expanse of space, uniting " +
-        faker.word.words({ count: { min: 1, max: 3 } }) +
-        " alien races.",
-    };
-  }
-
-  createAllianceMessages(allianceId) {
-    return {
-      alliance_id: allianceId,
-      message_id: faker.number.int({ min: 1, max: 1000 }),
-      content: faker.lorem.sentence(),
-    };
-  }
-
-  createTechnologies() {
-    const resourceTypes = ["energy_cost", "money_cost", "material_cost"];
-    const benefitTypes = ["speed_benefit", "attack_benefit", "defense_benefit"];
-
-    const randomResource = () => {
-      const selectedResources = faker.helpers.arrayElements(
-        resourceTypes,
-        faker.number.int({ min: 0, max: 2 })
-      );
-      return resourceTypes.reduce((acc, type) => {
-        acc[type] = selectedResources.includes(type)
-          ? faker.number.int({ min: 100, max: 1000 })
-          : null;
-        return acc;
-      }, {});
-    };
-
-    const randomBenefit = () => {
-      const selectedBenefits = faker.helpers.arrayElements(
-        benefitTypes,
-        faker.number.int({ min: 0, max: 2 })
-      );
-      return benefitTypes.reduce((acc, type) => {
-        acc[type] = selectedBenefits.includes(type)
-          ? faker.number.int({ min: 10, max: 50 })
-          : null;
-        return acc;
-      }, {});
-    };
-
-    return {
-      name: faker.lorem.words({ min: 2, max: 3 }),
-      ...randomResource(),
-      ...randomBenefit(),
-    };
-  }
-
-  createShips(position) {
-    return {
-      name: faker.vehicle.vehicle() + " Ship",
-      position_id: position.id,
-      ship_type: faker.number.int({ min: 1, max: 10 }),
-      quantity: faker.number.int({ min: 1, max: 10 }),
-      speed: faker.number.int({ min: 1, max: 100 }),
-      attack: faker.number.int({ min: 1, max: 100 }),
-      defense: faker.number.int({ min: 1, max: 100 }),
-    };
-  }
-
-  createPlanetTypes() {
-    return [
-      { type: "balanced", energy: 2, money: 2, material: 2 },
-      {
-        type: "energyRich",
-        energy: faker.number.int({ min: 3, max: 6 }),
-        money: faker.number.int({ min: 0, max: 2 }),
-        material: faker.number.int({ min: 0, max: 2 }),
-      },
-      {
-        type: "moneyRich",
-        energy: faker.number.int({ min: 0, max: 2 }),
-        money: faker.number.int({ min: 3, max: 6 }),
-        material: faker.number.int({ min: 0, max: 2 }),
-      },
-      {
-        type: "materialRich",
-        energy: faker.number.int({ min: 0, max: 2 }),
-        money: faker.number.int({ min: 0, max: 2 }),
-        material: faker.number.int({ min: 3, max: 6 }),
-      },
-      { type: "energyOnly", energy: 6, money: 0, material: 0 },
-      { type: "moneyOnly", energy: 0, money: 6, material: 0 },
-      { type: "materialOnly", energy: 0, money: 0, material: 6 },
-    ];
-  }
+    getRandomIntInclusive(min, max) {
+        return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
+    }
+    createMarketTransaction(i) {
+        return {
+            id: i,
+            user_id: this.getRandomIntInclusive(1, 7),
+            technology_id: this.getRandomIntInclusive(1, 25),
+            ship_type: this.getRandomIntInclusive(1, 25)
+        }
+    }
+    addShipToMarket(i) {
+        return {
+            ship_id: this.getRandomIntInclusive(1, 25),
+            market_id: this.getRandomIntInclusive(1, 7)
+        }
+    }
+    createAllianceMembers(i) {
+        return {
+            alliance_id: parseInt(this.getRandomIntInclusive(1, 50)),
+            user_id: parseInt(this.getRandomIntInclusive(1, 7))
+        }
+    }
+    createUsers(i) {
+        const usernames = ['skrillex', 'toto', 'titi', 'tata'];
+        const names = ['toto', 'titi', 'tata', 'toto'];
+        return {
+            role_id: 2,
+            planet_id: this.getRandomIntInclusive(1, 7),
+            username: usernames[this.getRandomIntInclusive(1, 3)]   + '-' + i.toString() ,
+            email: names[this.getRandomIntInclusive(1, 3)] + '-' + i.toString() + '@gmail.com',
+            password_hash: '$2a$10$Sh0gteSQ7sJmyon3Q7ZPD.AJ3.YC3OSHG1XpnxkcXZQmyDycTIBFq',
+            bearer_token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.I-u_fFFWLpuywjIxGHcEY-lSHWImD4XlsdFm6RQD_fo'
+        }
+    }
+    createAlliance(i) {
+        let colors = ['red', 'green', 'blue'];
+        return {
+            role_id: 2,
+            name: 'alliance-' + i.toString(),
+            color: colors[this.getRandomIntInclusive(0, 2)]
+        };
+    }
+    createPlanet(i) {
+        return {
+            planet_type_id: i,
+            energy: this.getRandomIntInclusive(1, 255),
+            money: this.getRandomIntInclusive(1, 255),
+            material: this.getRandomIntInclusive(1, 255),
+            position_id: i,
+            coordX: i,
+            coordY: i,
+        }
+    }
+    createShip(i) {
+        return {
+            position_id: i,
+            ship_type: i,
+            quantity: this.getRandomIntInclusive(1, 255),
+            speed: this.getRandomIntInclusive(1, 255),
+            attack: this.getRandomIntInclusive(1, 255),
+            defense: this.getRandomIntInclusive(1, 255),
+            name: 'ship-' + i.toString(),
+        }
+    }
+    createShipPlanet() {
+        return {
+            ship_id: parseInt(this.getRandomIntInclusive(1, 25)),
+            planet_id: parseInt(this.getRandomIntInclusive(1, 7)),
+        }
+    }
+    createTechnology(i) {
+        return {
+            name: 'technology-' + i.toString(),
+            energy_cost: this.getRandomIntInclusive(1, 255),
+            money_cost: this.getRandomIntInclusive(1, 255),
+            material_cost: this.getRandomIntInclusive(1, 255),
+            speed_benefit: this.getRandomIntInclusive(1, 255),
+            attack_benefit: this.getRandomIntInclusive(1, 255),
+            defense_benefit: this.getRandomIntInclusive(1, 255)
+        }
+    }
 }

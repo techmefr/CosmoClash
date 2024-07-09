@@ -4,7 +4,7 @@ import {
     allianceCreated,
     allianceUpdateAllData,
     allianceUpdateOneData,
-    allianceDeleted
+    allianceDeleted, alliancePlanetGamer
 } from '../../../core/services/AllianceServices.js'
 
 export const index = (req, res) => {
@@ -117,3 +117,12 @@ export const deleteAlliances = (req, res) => {
             }));
         });
 }
+
+export const playerAndPlanet = (req, res) =>
+    alliancePlanetGamer(req.headers.filter)
+        .then((result) => {
+            res.status(200).json({message: 'Ok', data: result, status: res.statusCode});
+        })
+        .catch((err) => {
+            res.status(500).json({message: err.message, status: res.statusCode});
+        })

@@ -7,6 +7,27 @@ export default class AllianceModel extends AbstractModels {
     constructor() {
     super();
     }
+    getPlanetsWithPlayers(filter='ASC') {
+        return new Promise((resolve, reject) => {
+            this.connexion.query(`
+                SELECT roles.roles, 
+                       a.name, 
+                       a.color, 
+                       COUNT(DISTINCT p.id) AS planet_count, 
+                       COUNT(DISTINCT am.user_id) AS player_count
+                FROM alliances a
+                    JOIN roles ON a.role_id = roles.id
+                    JOIN alliance_members am ON a.id = am.alliance_id
+                    JOIN users u ON am.user_id = u.id
+                    JOIN planets p ON u.planet_id = p.id
+                GROUP BY a.id, a.name ${ filter }`,
+                (err, results) => {
+                    if(err) reject(err);
+                    resolve(results);
+                }
+            );
+        })
+    }
     readAllAlliances() {
         return new Promise((resolve, reject) => {
             this.connexion.query('SELECT * FROM alliances', (err, result) => {
