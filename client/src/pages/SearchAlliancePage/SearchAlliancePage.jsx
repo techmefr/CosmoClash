@@ -1,4 +1,3 @@
-// TODO : Page pour chercher toutes les alliances et retourner leurs infos
 import Starfield from "react-starfield";
 import CustomButton from "../../components/ui/CustomButton";
 import "./SearchAlliancePage";
