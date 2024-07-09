@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <NavBar />
-      {/*  <Loading /> */}
       <ToolPage />
     </>
   );

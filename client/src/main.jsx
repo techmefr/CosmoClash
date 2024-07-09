@@ -19,10 +19,6 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "planet",
-        element: <Planet />,
-      },
-      {
         path: "market",
         element: <Market />,
       },
@@ -35,7 +31,12 @@ const router = createBrowserRouter([
         element: <ToolPage />,
       },
     ],
+
   },
+    {
+        path: "/planet",
+        element: <Planet />,
+    },
 ]);
 
 const container = document.getElementById("root");

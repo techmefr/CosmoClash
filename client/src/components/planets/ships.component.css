@@ -1,0 +1,31 @@
+i {
+    transform: rotateZ(45deg);
+}
+.container--ships {
+    background-color: #808080;
+    width: 75%;
+    margin: 2% auto;
+    border-radius: 15px;
+    height: 150px;
+    .container--ships--title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+        h4 {
+            font-size: 1.45rem;
+        }
+        margin-bottom: 5%;
+    }
+    .container--ships--informations {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+        margin: auto auto 5%;
+        div:last-child {
+            margin-left: 5%;
+        }
+    }
+}

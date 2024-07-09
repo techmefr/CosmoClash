@@ -8,11 +8,16 @@ export default class PlanetModel extends AbstractModels {
         return new Promise((resolve, reject) => {
             this.connexion.query(
                 `SELECT
-                     p.name,
-                     pos.coord_x AS pos_coordX,
-                     pos.coord_y AS pos_coordY
+                     p.id,
+                     p.energy,
+                     p.material,
+                     p.money,
+                     p.position_id,
+                     p.coordX,
+                     p.coordY,
+                     pt.type
                 FROM planets p
-                    JOIN positions pos on p.position_id = pos.id`,
+                    JOIN planet_type pt ON p.planet_type_id = pt.id`,
                 (err, result) => {
                     if (err) reject(err);
                     resolve(result);
@@ -69,6 +74,19 @@ export default class PlanetModel extends AbstractModels {
                     resolve(result);
                 })
         });
+    }
+    getShips(id) {
+        return new Promise((resolve, reject) => {
+            this.connexion.query(`
+                SELECT COUNT(ships.id) AS number_ship FROM planets
+                JOIN dbcosmoclash.planets_ships ps on planets.id = ps.planet_id
+                JOIN ships ON ps.ship_id = ships.id
+                WHERE planets.id = ?
+            `, [id], (err, result) => {
+                if(err) reject(err);
+                resolve(result);
+            })
+        })
     }
     updatePositionId(planet, id) {
         return new Promise((resolve, reject) => {

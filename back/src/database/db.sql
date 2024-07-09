@@ -5,8 +5,8 @@ CREATE DATABASE dbCosmoClash;
 USE dbCosmoClash;
 -- test
 CREATE TABLE technologies (
-                              `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-                              `name` VARCHAR(100) NOT NULL
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` VARCHAR(100) NOT NULL
 );
 -- new test2
 CREATE TABLE ships_technologies(

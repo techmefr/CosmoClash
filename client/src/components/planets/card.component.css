@@ -1,0 +1,50 @@
+.card--planet--container {
+    width: 75%;
+    margin: 2% auto auto;
+    border-radius: 15px;
+    background-color: #303030;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    .card--planet--icons {
+        width: 20%;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card--planet--informations {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        .container-tit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1%;
+            h4 {
+                font-size: 1.75rem;
+            }
+        }
+        .container-inf {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            height: calc(100px);
+            margin: auto;
+            align-items: center;
+            & div {
+                margin-top: 7%;
+                margin-right: 5%;
+                width: 15%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    span {
+        font-size: 1.25rem;
+    }
+}

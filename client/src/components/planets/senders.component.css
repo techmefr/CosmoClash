@@ -1,0 +1,31 @@
+.planet-container-senders {
+    width: 100%;
+    border-radius: 30px;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .container--augmentation {
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        div:last-child {
+            background-color: #303030;
+            margin-left: 5%;
+        }
+    }
+    input {
+        width:45px;
+        text-align:center;
+        padding-left: 15px;
+    }
+    .submit {
+        margin-top: 5%;
+        width: 30%;
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+}
