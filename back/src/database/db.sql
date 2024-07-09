@@ -10,11 +10,11 @@ token_expiration TIME NOT NULL
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    role_id INT NOT NULL,
-    planet_id INT NOT NULL,
+    role_id INT ,
+    planet_id INT ,
     username VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     bearer_token VARCHAR(255),
     created_at DATETIME DEFAULT NOW(),
     is_banishment BOOLEAN DEFAULT 0,
