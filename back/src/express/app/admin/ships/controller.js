@@ -106,7 +106,7 @@ export const patchOneShip = (req, res) => {
         .then(resultData => {
             if (resultData) {
                 res.status(200).send(JSON.stringify({
-                    message: 'Updated specific ship data',
+                    message: 'Updated specific ship migrate',
                     status: res.statusCode
                 }));
             } else {

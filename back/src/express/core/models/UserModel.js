@@ -1,6 +1,9 @@
 import AbstractModels from "../abstract/AbstractModels.js";
 
 export default class UserModel extends AbstractModels {
+    // constructor(props) {
+    //     super(props);
+    // }
     constructor() {
         super();
     }

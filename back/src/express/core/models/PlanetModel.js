@@ -38,7 +38,7 @@ export default class PlanetModel extends AbstractModels {
             );
         });
     }
-    createNewPlanets (planet) {
+    createNewPlanet (planet) {
         return new Promise((resolve, reject) => {
             this.connexion.query(
                 `
