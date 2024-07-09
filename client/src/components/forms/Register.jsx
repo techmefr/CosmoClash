@@ -9,6 +9,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
  
   const handleChange = (e, setValue) => {
     setValue(e.target.value);
@@ -26,7 +27,12 @@ export default function Register() {
     }
 
     fetch('https://localhost:8002/register', headers)
-  .then(response => response.json())
+  .then(response => {
+    if(response.status === 201){
+      console.log("user created succefuly")
+      setMessage("votre compte est cree avec succes")
+    }
+  })
   .catch(error => {
     console.error('There has been a problem with your fetch operation:', error);
   });   
@@ -43,6 +49,7 @@ export default function Register() {
         />
         <img src={logo} alt="" className="registerIMG" />
         <div className=" m-10">
+        <span>{message}</span>
           <form action="" className="container"  onSubmit={handleSubmit}>
             <div className="input-container">
               <div className="input-content">
