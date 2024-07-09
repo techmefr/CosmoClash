@@ -17,10 +17,27 @@ export default class UserModel extends AbstractModels {
             );
         });
     }
-    readOneUsersByIdOrEmail(value) {
-        let sql = 'SELECT * FROM users WHERE email = ?';
+    updateTokenByEmail(user) {
+        console.log(user);
         return new Promise((resolve, reject) => {
-            this.connexion.query(sql, [value], (err, result) => {
+            this.connexion.query(
+                `UPDATE users SET users.bearer_token=? WHERE email=?`,
+                [
+                    'Bearer ' + user.token,
+                    user.email
+                ],
+                (err, result) => {
+                    if(err) reject(err);
+                    resolve(result);
+                }
+            )
+        })
+    }
+    readOneUsersByIdOrEmail(value) {
+        console.log(value);
+        let sql = 'SELECT users.id, users.password, JSON_ARRAY(roles.roles) AS roles FROM users JOIN roles ON users.role_id = roles.id WHERE email=?';
+        return new Promise((resolve, reject) => {
+            this.connexion.query(sql, [value.email], (err, result) => {
                 if(err) reject(err)
                 resolve(result);
             });
@@ -30,7 +47,7 @@ export default class UserModel extends AbstractModels {
         return new Promise((resolve, reject) => {
             this.connexion.query(
                 `
-                    INSERT INTO users(role_id, planet_id, username, email, password_hash)
+                    INSERT INTO users(role_id, planet_id, username, email, password)
                     VALUES(?, ?, ?, ?, ?)
                 `,
                 [
@@ -38,7 +55,7 @@ export default class UserModel extends AbstractModels {
                     user.planet_id,
                     user.username,
                     user.email,
-                    user.password_hash !== undefined ? user.password_hash : user.password 
+                    user.password
                 ],
                 (err, result) => {
                     if(err) reject(err)
