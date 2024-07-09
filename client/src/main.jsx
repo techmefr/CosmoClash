@@ -8,6 +8,7 @@ import Market from "./pages/MarketPage";
 import SearchAlliance from "./pages/SearchAlliancePage";
 import ToolPage from "./pages/ToolPage/ToolPage";
 import './index.css'
+import PlanetLayout from "@/layouts/PlanetLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
   },
     {
         path: "/planet",
-        element: <Planet />,
+        element: <PlanetLayout />,
+        children: [{
+            path: '/planet',
+            element: <Planet />
+        }]
     },
 ]);
 

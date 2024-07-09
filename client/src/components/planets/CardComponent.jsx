@@ -18,12 +18,12 @@ function CardComponent(
             </div>
             <div className="card--planet--informations">
                 <div className="container-tit">
-                    <h4>{type}</h4>
+                    <h4>{ type }</h4>
                 </div>
                 <div className="container-inf">
-                    <div><span>E{energy}</span></div>
-                    <div><span>M{money}</span></div>
-                    <div><span>F{material}</span></div>
+                    <div><span>E{ energy }</span></div>
+                    <div><span>M{ money }</span></div>
+                    <div><span>F{ material }</span></div>
                 </div>
             </div>
         </div>

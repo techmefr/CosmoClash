@@ -1,4 +1,3 @@
-import PlanetLayout from "@/layouts/PlanetLayout.jsx";
 import {
     SendersComponent,
     PlanetComponent,
@@ -11,8 +10,7 @@ import Starfield from "react-starfield";
 function Planet() {
     const { nbShips, nbMaxShips, planets, addNumber, subNumber, submit } = useNbShips();
     return (
-        <PlanetLayout>
-
+        <>
             <Starfield
                 starCount={20000}
                 starColor={[255, 255, 255]}
@@ -32,7 +30,7 @@ function Planet() {
                 addNumber={() => addNumber}
                 subNumber={() => subNumber}
             />
-        </PlanetLayout>
+        </>
     );
 }
 
