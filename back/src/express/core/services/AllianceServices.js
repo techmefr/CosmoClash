@@ -6,3 +6,4 @@ export const allianceCreated = alliance => allianceModel.createNewAlliance(allia
 export const allianceUpdateAllData = (allinace, id) => allianceModel.putAlliances(allinace, id).then();
 export const allianceUpdateOneData = (allinace, id) => allianceModel.patchAlliances(allinace, id).then();
 export const allianceDeleted = id => allianceModel.deleteAlliances(id).then();
+export const alliancePlanetGamer = filter => allianceModel.getPlanetsWithPlayers(filter).then();

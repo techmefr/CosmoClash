@@ -7,9 +7,6 @@
     "scripts": {
         "test": "jest",
         "db:migrate": "node src/database/seed.js",
-        "db:migrate actions": "node src/database/migrate/actions.js",
-        "db:migrate planets": "node src/database/migrate/planets.js",
-        "db:migrate users": "node src/database/migrate/users.js",
         "start-dev": "nodemon src/server/server.js"
     },
     "author": "",

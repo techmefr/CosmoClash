@@ -30,14 +30,16 @@ export default class UserModel extends AbstractModels {
         return new Promise((resolve, reject) => {
             this.connexion.query(
                 `
-                    INSERT INTO users(username, is_admin, email, password)
-                    VALUES(?, ?, ?, ?)
+                    INSERT INTO users(role_id, planet_id, username, email, password_hash, bearer_token)
+                    VALUES(?, ?, ?, ?, ?, ?)
                 `,
                 [
+                    user.role_id,
+                    user.planet_id,
                     user.username,
-                    user.isAdmin ? user.isAdmin : 0,
                     user.email,
-                    user.password
+                    user.password_hash,
+                    user.bearer_token
                 ],
                 (err, result) => {
                     if(err) reject(err)

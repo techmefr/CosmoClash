@@ -8,11 +8,6 @@ roles JSON NOT NULL,
 token_expiration TIME NOT NULL
 );
 
-CREATE TABLE messages(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    content TEXT
-);
-
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     role_id INT NOT NULL,
@@ -55,7 +50,6 @@ CREATE TABLE market_ships(
 );
 CREATE TABLE ships (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    position_id INT,
     ship_type BIGINT DEFAULT 0,
     name VARCHAR(255) NOT NULL,
     quantity INT DEFAULT 0,
@@ -91,13 +85,6 @@ CREATE TABLE alliance_members (
     PRIMARY KEY (user_id, alliance_id)
 );
 
-CREATE TABLE alliance_messages (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    alliance_id INT,
-    message_id INT,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 CREATE TABLE market_transactions (
     id INT PRIMARY KEY,
     user_id INT,
@@ -116,13 +103,6 @@ REFERENCES users(id);
 ALTER TABLE alliance_members
 ADD FOREIGN KEY (alliance_id)
 REFERENCES alliances(id);
-
-ALTER TABLE alliance_messages
-ADD FOREIGN KEY (alliance_id)
-REFERENCES alliances(id);
-ALTER TABLE alliance_messages
-ADD FOREIGN KEY (message_id)
-REFERENCES messages(id);
 
 ALTER TABLE market_transactions
 ADD FOREIGN KEY (user_id)
