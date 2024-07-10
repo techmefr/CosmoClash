@@ -36,6 +36,7 @@ export default function GamePage() {
 
   return (
     <div className="cards">
+      <h1>Toto</h1>
       <div className="card black">
         <p className="tip">Nom d&apos;utilisateur</p>
         <p className="second-text">{userData.username}</p>
