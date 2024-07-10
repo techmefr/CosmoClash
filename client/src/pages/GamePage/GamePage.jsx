@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./gamePage.css";
+import "../../components/ui/CustomCard/customCard.css";
 
 export default function GamePage() {
   const [userData, setUserData] = useState(null);
