@@ -1,20 +1,19 @@
 import "../forms/Forms.css";
-
 import logo from "../../assets/logo.png";
-
 import Starfield from "react-starfield";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import CustomButton from "../ui/CustomButton";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const role_id = 3;
  
   const handleChange = (e, setValue) => {
     setValue(e.target.value);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,18 +22,13 @@ export default function Register() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({username,  email, password })
+      body: JSON.stringify({username,  email, password, role_id })
     }
 
     fetch('https://localhost:8002/register', headers)
-  .then(response => {
-    if(response.status === 201){
-      console.log("user created succefuly")
-      setMessage("votre compte est cree avec succes")
-    }
-  })
+  .then(response => response.json())
   .catch(error => {
-    console.error('There has been a problem with your fetch operation:', error);
+    console.error(error);
   });   
 
   };
@@ -49,7 +43,6 @@ export default function Register() {
         />
         <img src={logo} alt="" className="registerIMG" />
         <div className=" m-10">
-        <span>{message}</span>
           <form action="" className="container"  onSubmit={handleSubmit}>
             <div className="input-container">
               <div className="input-content">
@@ -82,12 +75,13 @@ export default function Register() {
                     />
                   </div>
                   <button type="submit">Je crée mon compte</button>
+                  <Link to="/login"><CustomButton customButtonName="SE CONNECTER" /></Link>
                 </div>
               </div>
             </div>
           </form>
         </div>
       </div>
-    </>
+  </>
   );
 }
