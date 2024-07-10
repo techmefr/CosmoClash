@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
 import HomePage from '../../pages/HomePage';
 import AboutPage from '../../pages/AboutPage';
 import ChatPage from '../../pages/ChatPage';
@@ -16,14 +15,10 @@ import SearchAlliance from '../../pages/SearchAlliancePage/SearchAlliancePage';
 import ToolPage from '../../pages/ToolPage/ToolPage';
 import Register from '../forms/Register';
 import Login from '../forms/Login';
-
 export const Navigation = () => {
-
-
   return (
     <BrowserRouter>
       <NavBar />
-
       <Routes>
         <Route path="*" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
@@ -41,10 +36,7 @@ export const Navigation = () => {
         <Route path="/tool" element={<ToolPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-
     </Routes>
-
     </BrowserRouter>
   )
-
 }

@@ -1,35 +1,35 @@
 import Starfield from "react-starfield";
 import CustomButton from "../../components/ui/CustomButton";
 import "./SearchAlliancePage";
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 
 
 function SearchAlliance() {
-  const [alliances, setAlliances] = useState([])
+  // const [alliances, setAlliances] = useState([])
 
-  let token = localStorage.getItem('token');
+  // let token = localStorage.getItem('token');
 
-  useEffect(() => {
-    getAllAliances()
-  }, [])
+  // useEffect(() => {
+  //   getAllAliances()
+  // }, [])
 
-  const getAllAliances = () => {
-    //e.preventDefault();
-    const headers = {
-      method: 'GET',
-      headers: {
-        'authorization': `Bearer ${JSON.parse(token)}`,
-      }
-    }
+  // const getAllAliances = () => {
+  //   //e.preventDefault();
+  //   const headers = {
+  //     method: 'GET',
+  //     headers: {
+  //       'authorization': `Bearer ${JSON.parse(token)}`,
+  //     }
+  //   }
 
-    fetch('https://localhost:8002/api/alliances', headers)
-  .then(response => response.json())
-  .then(json => setAlliances(json?.data))
-  .catch(error => {
-    console.error('There has been a problem with your fetch operation:', error);
-  });   
+  // //   fetch('https://localhost:8002/api/alliances', headers)
+  // // .then(response => response.json())
+  // // .then(json => setAlliances(json?.data))
+  // // .catch(error => {
+  // //   console.error('There has been a problem with your fetch operation:', error);
+  // // });   
 
-  };
+  // };
   return(
     <>
     <div className="flex items-center justify-center flex-col search-alliance-container">
@@ -49,9 +49,9 @@ function SearchAlliance() {
         <CustomButton customButtonName= "REJOINDRE" className= "mb-4"/>
       </div>
 
-      {alliances?.map((alliance, index) => 
-      <h1 key={index}>{alliance?.name}</h1>
-      )}
+      {/* {alliances?.map((alliance, index) =>  */}
+      {/* <h1 key={index}>{alliance?.name}</h1> */}
+      {/* )} */}
     
     </div>
     
