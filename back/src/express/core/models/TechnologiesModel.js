@@ -32,7 +32,7 @@ export default class technologiesModel extends AbstractModels {
     createNewTechnologies (technology) {
         return new Promise((resolve, reject) => {
             this.connexion.query(
-                `INSERT INTO Technologies
+                `INSERT INTO technologies
                         (name, energy_cost, money_cost, material_cost, speed_benefit, attack_benefit, defense_benefit)
                     VALUE(?, ?, ?, ?, ?, ?, ?)
                 `,
