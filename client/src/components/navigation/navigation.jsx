@@ -15,6 +15,8 @@ import SearchAlliance from '../../pages/SearchAlliancePage/SearchAlliancePage';
 import ToolPage from '../../pages/ToolPage/ToolPage';
 import Register from '../forms/Register';
 import Login from '../forms/Login';
+
+
 export const Navigation = () => {
   return (
     <BrowserRouter>
