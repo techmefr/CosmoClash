@@ -20,7 +20,6 @@ function App() {
     authenticate(token);
   }, [token, authenticate, isAuthenticated]);
 
-  console.log("herrrrrrrrrrrrrrrr token",token)
   return (
      <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
         <Navigation />

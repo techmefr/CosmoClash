@@ -20,7 +20,7 @@ export default class AllianceModel extends AbstractModels {
                     JOIN alliance_members am ON a.id = am.alliance_id
                     JOIN users u ON am.user_id = u.id
                     JOIN planets p ON u.planet_id = p.id
-                GROUP BY a.id, a.name ${ filter }`,
+                GROUP BY a.id, a.name`,
                 (err, results) => {
                     if(err) reject(err);
                     resolve(results);

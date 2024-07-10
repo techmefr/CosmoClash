@@ -3,10 +3,11 @@ import "../forms/Forms.css";
 import logo from "../../assets/logo.png";
 import Starfield from "react-starfield";
 import { AuthContext } from "../../App.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../ui/CustomButton";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,6 +33,7 @@ export default function Login() {
     if(json?.token) {
       localStorage.setItem('token', JSON.stringify(json?.token));
       setIsAuthenticated(true);
+      navigate("/game")
     }
   })
   .catch(error => {
