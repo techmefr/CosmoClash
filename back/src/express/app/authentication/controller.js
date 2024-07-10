@@ -1,4 +1,4 @@
-import { userCreated, userFindByEmail } from "../../core/services/UserServices.js";
+import {updateToken, userCreated, userFindByEmail} from "../../core/services/UserServices.js";
 import { bcryptUtils, jsonWebToken } from "../../core/utils/index.js";
 
 export const register = (req, res) => {
@@ -8,24 +8,30 @@ export const register = (req, res) => {
         res.status(500).send(JSON.stringify({message: 'Internal Server Error: ' + err.message, status: res.statusCode}));
     });
 }
-
 export const login = (req, res) => {
-    userFindByEmail(req.body.email)
+    console.log(req.body.email);
+    userFindByEmail(req.body)
         .then(user => {
             if (!user) {
                 return res.status(401).json({ message: 'Paire login/mot de passe incorrecte', status: res.statusCode});
             }
-
+            console.log(user[0].roles);
+            console.log(user[0].password);
             bcryptUtils.verifyPassword(req.body.password, user[0].password)
                 .then(result => {
-                    if (!result) 
+                    if (!result)
                         res.status(401).send(JSON.stringify({
                             message: 'Unauthorized: Wrong password',
                             status: res.statusCode
                         }));
+                    user.token = jsonWebToken.createToken({userId: user[0].id, roles: user[0].roles.roles});
+                    updateToken({
+                        token: user.token,
+                        email: req.body.email
+                    }).then();
                     res.status(200).json({
-                        message: "ok", 
-                        token: jsonWebToken.createToken({userId: user[0].id, isAdmin: user[0].is_admin}),
+                        message: "ok",
+                        token: user.token,
                         status: res.statusCode
                     });
                 })

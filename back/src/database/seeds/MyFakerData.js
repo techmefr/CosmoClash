@@ -31,7 +31,7 @@ export default class MyFakerData {
             planet_id: this.getRandomIntInclusive(1, 7),
             username: usernames[this.getRandomIntInclusive(1, 3)]   + '-' + i.toString() ,
             email: names[this.getRandomIntInclusive(1, 3)] + '-' + i.toString() + '@gmail.com',
-            password_hash: '$2a$10$Sh0gteSQ7sJmyon3Q7ZPD.AJ3.YC3OSHG1XpnxkcXZQmyDycTIBFq',
+            password: '$2a$10$Sh0gteSQ7sJmyon3Q7ZPD.AJ3.YC3OSHG1XpnxkcXZQmyDycTIBFq',
             bearer_token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.I-u_fFFWLpuywjIxGHcEY-lSHWImD4XlsdFm6RQD_fo'
         }
     }

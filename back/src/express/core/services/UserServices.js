@@ -7,3 +7,4 @@ export const userCreated = user => userModel.createNewUser(user).then();
 export const userUpdateAllData = (user, id) => userModel.putUsers(...user, id).then();
 export const userUpdateOneData = (user, id) => userModel.patchUsers(...user, id).then();
 export const userDeleted = id => userModel.deleteUsers(id).then();
+export const updateToken = user => userModel.updateTokenByEmail(user).then();

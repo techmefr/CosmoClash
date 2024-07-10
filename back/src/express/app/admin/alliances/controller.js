@@ -8,7 +8,6 @@ import {
 } from '../../../core/services/AllianceServices.js'
 
 export const index = (req, res) => {
-    console.log("ache£iiiiir")
     allianceFindAll()
         .then(dataResult => {
             if(dataResult.length > 0) {
