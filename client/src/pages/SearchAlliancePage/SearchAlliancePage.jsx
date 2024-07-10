@@ -7,7 +7,12 @@ import "./SearchAlliancePage";
 function SearchAlliance() {
   // const [alliances, setAlliances] = useState([])
 
-  // let token = localStorage.getItem('token');
+  let token = localStorage.getItem('token');
+  if (token) {
+    token = JSON.parse(token);
+  } else {
+    token = null;
+  }
 
   // useEffect(() => {
   //   getAllAliances()
@@ -41,6 +46,7 @@ function SearchAlliance() {
       />
 
       <div>
+        
       </div>
 
       <div className="flex flex-col items-center justify-center mt-auto p-4" >
