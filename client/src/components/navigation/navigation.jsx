@@ -6,7 +6,7 @@ import ChatPage from '../../pages/ChatPage';
 import CommunityGuidelines from '../../pages/CommunityGuidelines';
 import ContactPage from '../../pages/ContactPage';
 import DashboardPage from '../../pages/DashboardPage';
-import GamePage from '../../pages/GamePage';
+import GamePage from '../../pages/GamePage/GamePage';
 import MarketPage from '../../pages/MarketPage';
 import PlanetPage from '../../pages/PlanetPage';
 import PolicyPage from '../../pages/PolicyPage';
