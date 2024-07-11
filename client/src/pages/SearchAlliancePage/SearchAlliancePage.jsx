@@ -3,16 +3,20 @@ import Starfield from "react-starfield";
 import CustomButton from "../../components/ui/CustomButton";
 import "./SearchAlliancePage";
 import { useEffect, useState } from "react";
-import PlutoIco from "../../components/ui/svg/PlutoIco";
+//import PlutoIco from "../../components/ui/svg/PlutoIco";
+//import GalaxyIco from "../../components/ui/svg/GalaxyIco";
+//import JupiterIco from "../../components/ui/svg/JupiterreIso";
+import MarsIco from "../../components/ui/svg/MarsIco";
+
 
 const AllianceList = ({alliance}) => {
   return (
     <>
       <div className="icon_alliace">
-      <PlutoIco
+      <MarsIco
             className="nav-icon"
-            width={54}
-            height={54}
+            width={64}
+            height={64}
             fillColor="#fff"
           />
       </div>
@@ -93,7 +97,7 @@ function SearchAlliance() {
 
       <div className="flex flex-col alliance_btn_action" >
         <CustomButton customButtonName= "CREER UNE ALLIANCE" className= "mb-4" />
-        <div  onClick={() => rejoinAlliance(alliance)}>
+        <div onClick={() => rejoinAlliance(alliance)}>
         <CustomButton customButtonName= "REJOINDRE" className= "mb-4"/>
         </div>
       </div>
