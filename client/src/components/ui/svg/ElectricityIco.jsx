@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function ElectricityIco({
+export default function ElectricityIco({
   width,
   height,
   fillColor = "#FFFFFF",
@@ -144,12 +144,3 @@ ElectricityIco.propTypes = {
   path7FillColor: PropTypes.string,
   path8FillColor: PropTypes.string,
 };
-
-ElectricityIco.defaultProps = {
-  width: "24px",
-  height: "24px",
-  fillColor: "#FFFFFF",
-  path1FillColor: "#33CCCC",
-};
-
-export default ElectricityIco;

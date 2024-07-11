@@ -31,8 +31,8 @@ function PlusIcon({
 }
 
 PlusIcon.propTypes = {
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
   fillColor: PropTypes.string,
   path1FillColor: PropTypes.string,
   path2FillColor: PropTypes.string,
