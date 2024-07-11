@@ -4,7 +4,7 @@ const mockPlanets = [
   {
     id: 1,
     nom: "Alpha",
-    hasOwner: true,
+    user_id: 1,
     resources: {
       energy: 100,
       money: 200,
@@ -19,13 +19,13 @@ const mockPlanets = [
   {
     id: 2,
     nom: "Beta",
-    hasOwner: false,
+    user_id: null,
     resources: {
       energy: 50,
       money: 100,
       material: 150,
     },
-    ships: 0,
+    ships: 3,
     position: {
       coordX: 3,
       coordY: 4,
@@ -34,7 +34,7 @@ const mockPlanets = [
   {
     id: 3,
     nom: "Gamma",
-    hasOwner: true,
+    user_id: 2,
     resources: {
       energy: 200,
       money: 300,
@@ -49,13 +49,13 @@ const mockPlanets = [
   {
     id: 4,
     nom: "Delta",
-    hasOwner: false,
+    user_id: null,
     resources: {
       energy: 25,
       money: 75,
       material: 125,
     },
-    ships: 0,
+    ships: 2,
     position: {
       coordX: 7,
       coordY: 8,
@@ -64,7 +64,7 @@ const mockPlanets = [
   {
     id: 5,
     nom: "Epsilon",
-    hasOwner: true,
+    user_id: 3,
     resources: {
       energy: 300,
       money: 400,
@@ -79,13 +79,13 @@ const mockPlanets = [
   {
     id: 6,
     nom: "Zeta",
-    hasOwner: false,
+    user_id: null,
     resources: {
       energy: 60,
       money: 120,
       material: 180,
     },
-    ships: 0,
+    ships: 10,
     position: {
       coordX: 11,
       coordY: 12,
@@ -94,7 +94,7 @@ const mockPlanets = [
   {
     id: 7,
     nom: "Eta",
-    hasOwner: true,
+    user_id: null,
     resources: {
       energy: 400,
       money: 500,
@@ -109,13 +109,13 @@ const mockPlanets = [
   {
     id: 8,
     nom: "Theta",
-    hasOwner: false,
+    user_id: null,
     resources: {
       energy: 70,
       money: 140,
       material: 210,
     },
-    ships: 0,
+    ships: 3,
     position: {
       coordX: 15,
       coordY: 16,
@@ -124,7 +124,7 @@ const mockPlanets = [
   {
     id: 9,
     nom: "Iota",
-    hasOwner: true,
+    user_id: null,
     resources: {
       energy: 500,
       money: 600,
@@ -139,13 +139,13 @@ const mockPlanets = [
   {
     id: 10,
     nom: "Kappa",
-    hasOwner: false,
+    user_id: null,
     resources: {
       energy: 80,
       money: 160,
       material: 240,
     },
-    ships: 0,
+    ships: 2,
     position: {
       coordX: 19,
       coordY: 20,
