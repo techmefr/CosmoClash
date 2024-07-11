@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function JupiterIco({ width, height, color, pathColors }) {
+function JupiterIco({ width = "100%", height = "100%", color = "#FFFFFF", pathColors = [] }) {
   return (
     <svg
       version="1.1"
@@ -144,13 +144,6 @@ JupiterIco.propTypes = {
   height: PropTypes.string,
   color: PropTypes.string,
   pathColors: PropTypes.arrayOf(PropTypes.string),
-};
-
-JupiterIco.defaultProps = {
-  width: "100%",
-  height: "100%",
-  color: "#FFFFFF",
-  pathColors: [],
 };
 
 export default JupiterIco;

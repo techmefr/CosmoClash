@@ -4,8 +4,11 @@ import CustomCard from "../../components/ui/CustomCard/CustomCard";
 import "../../components/ui/CustomCard/customCard.css";
 import "./gamePage.css";
 import CommunauteIco from "../../components/ui/svg/CollaborationIco";
-import PlanetIco from "../../components/ui/svg/PlanetIco";
+import PlanetIcoRandom from "../../components/ui/PlanetIcoRandom";
 import RocketIco from "../../components/ui/svg/RocketIco";
+import ElectricityIco from "../../components/ui/svg/ElectricityIco";
+import MoneyBagIco from "../../components/ui/svg/MoneyBagIco";
+import MineIco from "../../components/ui/svg/MineIco";
 
 export default function GamePage() {
   const [userData, setUserData] = useState(null);
@@ -53,11 +56,10 @@ export default function GamePage() {
     {
       title: "Nombre de planètes",
       key: "planets_count",
-      icon: PlanetIco,
+      icon: PlanetIcoRandom,
       iconProps: {
         width: "100px",
         height: "100px",
-        fillColor: "#FFFFFF",
       },
     },
     {
@@ -65,15 +67,15 @@ export default function GamePage() {
       key: "ships_count",
       icon: RocketIco,
       iconProps: {
-        width: "100px",
-        height: "100px",
+        width: "80px",
+        height: "80px",
         fillColor: "#FFFFFF",
       },
     },
     {
       title: "Énergie",
       key: "energy",
-      icon: CommunauteIco,
+      icon: ElectricityIco,
       iconProps: {
         width: "100px",
         height: "100px",
@@ -83,7 +85,7 @@ export default function GamePage() {
     {
       title: "Monnaie",
       key: "money",
-      icon: CommunauteIco,
+      icon: MoneyBagIco,
       iconProps: {
         width: "100px",
         height: "100px",
@@ -93,10 +95,10 @@ export default function GamePage() {
     {
       title: "Matériel",
       key: "material",
-      icon: CommunauteIco,
+      icon: MineIco,
       iconProps: {
-        width: "100px",
-        height: "100px",
+        width: "200px",
+        height: "200px",
         fillColor: "#FFFFFF",
       },
     },

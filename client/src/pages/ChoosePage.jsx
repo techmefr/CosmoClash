@@ -1,24 +1,35 @@
-import { useEffect, useState } from "react";
-import CustomCard from "./CustomCard";
+import { useContext } from "react";
+import CustomCard from "../components/ui/CustomCard/CustomCard";
+import { PlanetContext } from "../hook/PlanetContext/";
+import ElectricityIco from "../components/ui/svg/ElectricityIco";
+import MoneyBagIco from "../components/ui/svg/MoneyBagIco";
+import MineIco from "../components/ui/svg/MineIco";
 
 function ChoosePage() {
-  const [planets, setPlanets] = useState([]);
+  const { planetsData, loading, error } = useContext(PlanetContext);
 
-  useEffect(() => {
-    fetch("http://localhost:8002/api/planet")
-      .then((response) => response.json())
-      .then((data) => setPlanets(data))
-      .catch((error) => console.error("Error fetching planets:", error));
-  }, []);
+  if (loading) {
+    return <p>Chargement des données...</p>;
+  }
+
+  if (error) {
+    return <p>Erreur de chargement des données : {error.message}</p>;
+  }
 
   return (
     <div className="choose-page">
-      {planets.map((planet) => (
-        <CustomCard
-          key={planet.id}
-          title={planet.name}
-          value={`Énergie: ${planet.energy}, Monnaie: ${planet.currency}, Matériel: ${planet.material}`}
-        />
+      {planetsData.map((planet) => (
+        <CustomCard key={planet.id} title={planet.nom}>
+          <div>
+            <ElectricityIco /> Énergie: {planet.resources.energy}
+          </div>
+          <div>
+            <MoneyBagIco /> Monnaie: {planet.resources.money}
+          </div>
+          <div>
+            <MineIco /> Matériel: {planet.resources.material}
+          </div>
+        </CustomCard>
       ))}
     </div>
   );

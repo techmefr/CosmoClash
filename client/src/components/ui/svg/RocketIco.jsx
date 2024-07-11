@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
 function RocketIco({
-  width,
-  height,
+  width = "24px",
+  height = "24px",
   fillColor = "#FFFFFF",
-  path1FillColor,
-  path2FillColor,
+  path1FillColor = "#33CCCC",
+  path2FillColor = "#000000",
 }) {
   return (
     <svg
@@ -84,14 +84,6 @@ RocketIco.propTypes = {
   fillColor: PropTypes.string,
   path1FillColor: PropTypes.string,
   path2FillColor: PropTypes.string,
-};
-
-RocketIco.defaultProps = {
-  width: "24px",
-  height: "24px",
-  fillColor: "#FFFFFF",
-  path1FillColor: "#33CCCC",
-  path2FillColor: "#000000",
 };
 
 export default RocketIco;
