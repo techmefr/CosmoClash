@@ -11,9 +11,12 @@ const fetchUserData = async () => {
       alliance_name: "CosmoCat",
       planets_count: 20,
       ships_count: 100,
-      energy: 3567,
-      money: 4567,
-      material: 7891,
+      energy: 200,
+      money: 200,
+      material: 200,
+      speed: 1,
+      attack: 1,
+      defense: 1,
     };
   }
 };

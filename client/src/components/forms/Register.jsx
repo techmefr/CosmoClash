@@ -1,20 +1,20 @@
 import "../forms/Forms.css";
-
 import logo from "../../assets/logo.png";
-
 import Starfield from "react-starfield";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import CustomButton from "../ui/CustomButton";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const role_id = 3;
  
   const handleChange = (e, setValue) => {
     setValue(e.target.value);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,10 +23,11 @@ export default function Register() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({username,  email, password })
+      body: JSON.stringify({username,  email, password, role_id })
     }
 
     fetch('https://localhost:8002/register', headers)
+  //.then(response => response.json())
   .then(response => {
     if(response.status === 201){
       console.log("user created succefuly")
@@ -82,12 +83,13 @@ export default function Register() {
                     />
                   </div>
                   <button type="submit">Je crée mon compte</button>
+                  <Link to="/login"><CustomButton customButtonName="SE CONNECTER" /></Link>
                 </div>
               </div>
             </div>
           </form>
         </div>
       </div>
-    </>
+  </>
   );
 }

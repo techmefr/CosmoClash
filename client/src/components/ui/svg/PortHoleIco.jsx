@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function PorHoleIco({ width, height, color }) {
+function PorHoleIco({ width = "512px", height = "512px", color = "#FFFFFF" }) {
   return (
     <svg
       version="1.1"
@@ -72,12 +72,6 @@ PorHoleIco.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-};
-
-PorHoleIco.defaultProps = {
-  width: "512px",
-  height: "512px",
-  color: "#FFFFFF",
 };
 
 export default PorHoleIco;

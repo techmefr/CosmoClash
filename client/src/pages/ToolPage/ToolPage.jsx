@@ -1,10 +1,23 @@
 import Logo from "../../components/ui/Logo.jsx";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./toolPage.css";
+import { AuthContext } from "../../App.jsx";
 
 export function ToolPage() {
   const [isSoundMuted, setIsSoundMuted] = useState(false);
   const [isMusicMuted, setIsMusicMuted] = useState(false);
+  const { setIsAuthenticated } = useContext(AuthContext);
+  
+
+const logout = () => {
+    try {
+        window.localStorage.removeItem("token");
+        setIsAuthenticated(false)
+    } catch (error) {
+      console.error(error)
+    }
+  
+  }
 
   return (
     <>
@@ -17,14 +30,14 @@ export function ToolPage() {
           <h3 className="mb-2">Mode gaucher</h3>
           <label className="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" className="sr-only peer" />
-            <div className="group peer ring-0 bg-gradient-to-tr from-rose-100 via-rose-400 to-rose-500 rounded-full outline-none duration-300 after:duration-300 w-24 h-10 shadow-md peer-checked:bg-emerald-500 peer-focus:outline-none after:content-['✖️'] after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:h-8 after:w-10 after:top-1 after:left-1 after:-rotate-180 after:flex after:justify-center after:items-center peer-checked:after:translate-x-12 peer-checked:after:content-['✔️'] peer-hover:after:scale-95 peer-checked:after:rotate-0 peer-checked:bg-gradient-to-tr peer-checked:from-green-100 peer-checked:via-lime-400 peer-checked:to-lime-500"></div>
+            <div className="group peer ring-0 bg-gradient-to-tr from-rose-100 via-rose-400 to-rose-500 rounded-full outline-none duration-300 after:duration-300 w-24 h-10 shadow-md peer-checked:bg-emerald-500 peer-focus:outline-none after:content-['✖'] after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:h-8 after:w-10 after:top-1 after:left-1 after:-rotate-180 after:flex after:justify-center after:items-center peer-checked:after:translate-x-12 peer-checked:after:content-['✔'] peer-hover:after:scale-95 peer-checked:after:rotate-0 peer-checked:bg-gradient-to-tr peer-checked:from-green-100 peer-checked:via-lime-400 peer-checked:to-lime-500"></div>
           </label>
         </div>
         <div className="setting-item max-w-screen-sm flex justify-between items-center mb-4 p-2.5 bg-[#2a2a2a] rounded-[10px]">
           <h3 className="mb-2">Thème</h3>
           <label className="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" className="sr-only peer" />
-            <div className="group peer ring-0 bg-gradient-to-tr from-rose-100 via-rose-400 to-rose-500 rounded-full outline-none duration-300 after:duration-300 w-24 h-10 shadow-md peer-checked:bg-emerald-500 peer-focus:outline-none after:content-['✖️'] after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:h-8 after:w-10 after:top-1 after:left-1 after:-rotate-180 after:flex after:justify-center after:items-center peer-checked:after:translate-x-12 peer-checked:after:content-['✔️'] peer-hover:after:scale-95 peer-checked:after:rotate-0 peer-checked:bg-gradient-to-tr peer-checked:from-green-100 peer-checked:via-lime-400 peer-checked:to-lime-500"></div>
+            <div className="group peer ring-0 bg-gradient-to-tr from-rose-100 via-rose-400 to-rose-500 rounded-full outline-none duration-300 after:duration-300 w-24 h-10 shadow-md peer-checked:bg-emerald-500 peer-focus:outline-none after:content-['✖'] after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:h-8 after:w-10 after:top-1 after:left-1 after:-rotate-180 after:flex after:justify-center after:items-center peer-checked:after:translate-x-12 peer-checked:after:content-['✔'] peer-hover:after:scale-95 peer-checked:after:rotate-0 peer-checked:bg-gradient-to-tr peer-checked:from-green-100 peer-checked:via-lime-400 peer-checked:to-lime-500"></div>
           </label>
         </div>
         <div className="setting-item max-w-screen-sm flex justify-between items-center mb-4 p-2.5 bg-[#2a2a2a] rounded-[5px]">
@@ -109,7 +122,7 @@ export function ToolPage() {
         </div>
         <div className="setting-item max-w-screen-sm flex justify-between items-center mb-4 p-2.5 bg-[#2a2a2a] rounded-[5px]">
           <h3 className="mb-2">Déconnexion</h3>
-          <button className="logout-button bg-red-600 border-none text-white py-1 px-2 text-center text-lg cursor-pointer rounded-[3px]">
+          <button onClick={logout} className="logout-button bg-red-600 border-none text-white py-1 px-2 text-center text-lg cursor-pointer rounded-[3px]">
             →
           </button>
         </div>

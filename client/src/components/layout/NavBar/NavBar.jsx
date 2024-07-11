@@ -9,7 +9,7 @@ import ServiceToolIco from "../../ui/svg/ServiceToolIco";
 function NavBar() {
   return (
     <nav className="navbar">
-      <Link to="/" className="nav-item">
+      <Link to="/game" className="nav-item">
         <div className="nav-content">
           <HomeIcon
             className="nav-icon"

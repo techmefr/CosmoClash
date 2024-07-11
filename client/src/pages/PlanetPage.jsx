@@ -3,7 +3,7 @@
 export default function PlanetPage() {
   return (
     <div>
-      <h1>page planet</h1>
+      <h1>page planet/attak de franck</h1>
     </div>
   )
 }

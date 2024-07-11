@@ -1,6 +1,11 @@
 import PropTypes from "prop-types";
 
-function SolarSystemIco({ width, height, iconColor, pathColors }) {
+function SolarSystemIco({
+  width = "24px",
+  height = "24px",
+  iconColor = "#FFFFFF",
+  pathColors = [],
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -59,13 +64,6 @@ SolarSystemIco.propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   iconColor: PropTypes.string,
   pathColors: PropTypes.arrayOf(PropTypes.string),
-};
-
-SolarSystemIco.defaultProps = {
-  width: "24px",
-  height: "24px",
-  iconColor: "#000000",
-  pathColors: [],
 };
 
 export default SolarSystemIco;

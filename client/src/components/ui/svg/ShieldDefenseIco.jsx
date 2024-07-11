@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
 function ShieldDefenseIcon({
-  width,
-  height,
-  fillColor,
+  width = "48", // Valeurs par défaut pour width et height
+  height = "48",
+  fillColor = "white", // Valeur par défaut pour la couleur globale
   path1FillColor,
   path2FillColor,
 }) {
