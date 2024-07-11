@@ -1,44 +1,56 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "../../pages/HomePage";
-import AboutPage from "../../pages/AboutPage";
-import ChatPage from "../../pages/ChatPage";
-import CommunityGuidelines from "../../pages/CommunityGuidelines";
-import ContactPage from "../../pages/ContactPage";
-import DashboardPage from "../../pages/DashboardPage";
-import GamePage from "../../pages/GamePage/GamePage";
-import MarketPage from "../../pages/MarketPage";
-import PlanetPage from "../../pages/PlanetPage";
-import PolicyPage from "../../pages/PolicyPage";
-import ProfilePage from "../../pages/ProfilePage";
-import NavBar from "../layout/NavBar/NavBar";
-import SearchAlliance from "../../pages/SearchAlliancePage/SearchAlliancePage";
-import ToolPage from "../../pages/ToolPage/ToolPage";
-import Register from "../forms/Register";
-import Login from "../forms/Login";
-import ChoosePage from "../../pages/ChoosePage";
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import HomePage from '../../pages/HomePage';
+//import AboutPage from '../../pages/AboutPage';
+import DashboardPage from '../../pages/DashboardPage';
+import GamePage from '../../pages/GamePage/GamePage';
+import MarketPage from '../../pages/MarketPage';
+import PlanetPage from '../../pages/PlanetPage';
+import NavBar from '../layout/NavBar/NavBar';
+import SearchAlliance from '../../pages/SearchAlliancePage/SearchAlliancePage';
+import ToolPage from '../../pages/ToolPage/ToolPage';
+import Register from '../forms/Register';
+//import ChatPage from '../../pages/ChatPage';
+// CommunityGuidelines from '../../pages/CommunityGuidelines';
+//import ContactPage from '../../pages/ContactPage';
+//import PolicyPage from '../../pages/PolicyPage';
+//import ProfilePage from '../../pages/ProfilePage';
+import Login from '../forms/Login';
+import { useContext } from 'react';
+import { AuthContext } from '../../App';
 
 export const Navigation = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+
+  const routes = [
+    // { path: "/chat", Component: ChatPage, isPublic: false },
+    //{ path: "/community", Component: CommunityGuidelines, isPublic: false },
+    //{ path: "/contact", Component: ContactPage, isPublic: false },
+    //{ path: "/legal", Component: PolicyPage, isPublic: false },
+    //{ path: "/profil", Component: ProfilePage, isPublic: false },
+    //{ path: "/about", Component: AboutPage, isPublic: false },
+    { path: "*", Component: HomePage, isPublic: true },
+    { path: "/", Component: HomePage, isPublic: true },
+    { path: "/register", Component: Register, isPublic: true },
+    { path: "/dashboard", Component: DashboardPage, isPublic: false },
+    { path: "/login", Component: Login, isPublic: true },
+    { path: "/game", Component: GamePage, isPublic: false },
+    { path: "/market", Component: MarketPage, isPublic: false },
+    { path: "/planet", Component: PlanetPage, isPublic: false },
+    { path: "/alliance", Component: SearchAlliance, isPublic: false },
+    { path: "/tool", Component: ToolPage, isPublic: false },
+  ];
+
   return (
     <BrowserRouter>
-      <NavBar />
+      {isAuthenticated && <NavBar />}
       <Routes>
-        <Route path="*" element={<HomePage />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/choose" element={<ChoosePage />} />
-        <Route path="/chat" element={<ChatPage />} />
-        <Route path="/community" element={<CommunityGuidelines />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/game" element={<GamePage />} />
-        <Route path="/market" element={<MarketPage />} />
-        <Route path="/planet" element={<PlanetPage />} />
-        <Route path="/legal" element={<PolicyPage />} />
-        <Route path="/alliance" element={<SearchAlliance />} />
-        <Route path="/profil" element={<ProfilePage />} />
-        <Route path="/tool" element={<ToolPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        {routes.map(({ path, Component, isPublic }, index) => (
+          isPublic ? (
+            <Route key={index} path={path} element={!isAuthenticated ? <Component /> : <Navigate to="/game" />} />
+          ) : (
+            <Route key={index} path={path} element={isAuthenticated ? <Component /> : <Navigate to="/" />} />
+          )
+        ))}
       </Routes>
     </BrowserRouter>
   );

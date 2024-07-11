@@ -1,17 +1,21 @@
-import  { useState } from "react";
+import  { useState, useContext } from "react";
 import "../forms/Forms.css";
 import logo from "../../assets/logo.png";
 import Starfield from "react-starfield";
+import { AuthContext } from "../../App.jsx";
+import { Link, useNavigate } from "react-router-dom";
+import CustomButton from "../ui/CustomButton";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   const handleChange = (e, setValue) => {
     setValue(e.target.value);
   };
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,10 +30,14 @@ export default function Login() {
     fetch('https://localhost:8002/login', headers)
   .then(response => response.json())
   .then(json => {
-     localStorage.setItem('token', JSON.stringify(json?.token));
+    if(json?.token) {
+      localStorage.setItem('token', JSON.stringify(json?.token));
+      setIsAuthenticated(true);
+      navigate("/game")
+    }
   })
   .catch(error => {
-    console.error('There has been a problem with your fetch operation:', error);
+    console.error(error);
   });   
 
   };
@@ -71,12 +79,13 @@ export default function Login() {
                   <button className="text-blue-form m-2" type="submit">
                     Je me connecte
                   </button>
+                  <Link to="/register"> <CustomButton customButtonName="S'ENREGISTRER" /></Link>
                 </div>
               </div>
             </div>
           </form>
         </div>
       </div>
-    </>
-  );
+      </>
+      );
 }
