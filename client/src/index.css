@@ -22,3 +22,95 @@ h6 {
 button {
   font-family: "Poppins", sans-serif;
 }
+
+.container_alliance {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  margin: 15px 10px;
+  border-radius: 20px;
+  background-color: #181818;
+  min-width: 80%;
+  font-family: "Roboto", sans-serif;
+ }
+
+ .container_alliance_selected {
+ border: 2px solid #33CCCC;
+ background-color: #1e221e;
+ }
+
+ .info_alliace {
+   padding: 10px;
+  
+ }
+ .icon_alliace {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+ }
+
+ .info_alliace h1 {
+  font-size: 26px;
+ }
+
+ .info_alliace h4 {
+  font-size: 22px;
+ }
+
+ .info_value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #33CCCC;
+ }
+
+ .alliance_btn_action {
+  position: fixed;
+  bottom: 70px;
+ }
+
+ .alliance_title {
+  color: #fff;
+  font-size: 35px;
+ }
+
+ .alert-box {
+  display: none; /* Caché par défaut */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  justify-content: center;
+  align-items: center;
+  color: #0056b3;
+  z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+.alert-content {
+  background-color: #181818;
+  color: #111111;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+#closeBtn {
+  margin-top: 50px;
+  padding: 5px 30px;
+  border: none;
+  background-color: #33CCCC;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#closeBtn:hover {
+  background-color: #0056b3;
+}

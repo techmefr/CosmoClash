@@ -3,9 +3,10 @@ import Starfield from "react-starfield";
 import CustomButton from "../components/ui/CustomButton";
 
 import "./style/HomePage.css";
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
 export default function HomePage() {
+
   return (
     <div className="homePage">
       <Starfield
