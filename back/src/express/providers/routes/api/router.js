@@ -5,7 +5,6 @@ import {
     AdminPlanetsRoad,
     AdminResourcesRoad,
     AdminTechnologieRoad,
-    AdminPositionsRoad, 
     AdminAllianceRoad
 } from "../../../app/admin/index.js";
 const apiRouter = express.Router();
@@ -16,7 +15,6 @@ apiRouter
     .use("/ships", AdminShipsRoad)
     .use('/resources', AdminResourcesRoad)
     .use("/technologies", AdminTechnologieRoad)
-    .use("/positions", AdminPositionsRoad)
     .use("/alliances", AdminAllianceRoad)
 
 export default apiRouter;
