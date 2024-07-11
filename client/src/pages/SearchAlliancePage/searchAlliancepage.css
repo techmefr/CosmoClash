@@ -1,0 +1,17 @@
+/* SearchAlliancePage.css */
+.search-alliance-container {
+   min-height: calc(100vh - 4rem);
+   margin-bottom: 5rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .allianceBTN {
+   margin-top: auto; 
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 

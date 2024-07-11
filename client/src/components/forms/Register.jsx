@@ -1,10 +1,44 @@
 import "../forms/Forms.css";
-
 import logo from "../../assets/logo.png";
-
 import Starfield from "react-starfield";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import CustomButton from "../ui/CustomButton";
 
 export default function Register() {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const role_id = 3;
+ 
+  const handleChange = (e, setValue) => {
+    setValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const headers = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({username,  email, password, role_id })
+    }
+
+    fetch('https://localhost:8002/register', headers)
+  //.then(response => response.json())
+  .then(response => {
+    if(response.status === 201){
+      console.log("user created succefuly")
+      setMessage("votre compte est cree avec succes")
+    }
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });   
+
+  };
   return (
     <>
       <div className="register">
@@ -16,7 +50,8 @@ export default function Register() {
         />
         <img src={logo} alt="" className="registerIMG" />
         <div className=" m-10">
-          <form action="" className="container">
+        <span>{message}</span>
+          <form action="" className="container"  onSubmit={handleSubmit}>
             <div className="input-container">
               <div className="input-content">
                 <div className="input-dist">
@@ -27,27 +62,34 @@ export default function Register() {
                       required
                       type="text"
                       className="input-is"
+                      value={username}
+                      onChange={(e) => handleChange(e, setUsername)}
                     />
                     <input
                       placeholder="Adresse email"
                       required
                       type="text"
                       className="input-is"
+                      value={email}
+                      onChange={(e) => handleChange(e, setEmail)}
                     />
                     <input
                       placeholder="Mot de passe"
                       required
                       type="password"
                       className="input-is"
+                      value={password}
+                      onChange={(e) => handleChange(e, setPassword)}
                     />
                   </div>
-                  <button>Je crée mon compte</button>
+                  <button type="submit">Je crée mon compte</button>
+                  <Link to="/login"><CustomButton customButtonName="SE CONNECTER" /></Link>
                 </div>
               </div>
             </div>
           </form>
         </div>
       </div>
-    </>
+  </>
   );
 }

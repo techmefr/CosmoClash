@@ -72,7 +72,7 @@ export const patchResource = (req, res) => {
     resourceUpdateOneData(req.body, req.params.id)
         .then(() => {
             res.status(201).send(JSON.stringify({
-                message: 'Updated specific resource data',
+                message: 'Updated specific resource migrate',
                 status: res.statusCode
             }));
         })

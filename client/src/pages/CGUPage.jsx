@@ -1,1 +1,8 @@
-// TODO : A remplir avec la partie du dossier /legal
+
+export default function CGUPage() {
+  return (
+    <div>
+      <h1>page cgu</h1>
+    </div>
+  )
+}

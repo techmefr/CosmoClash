@@ -18,8 +18,7 @@ export default class technologiesModel extends AbstractModels {
     readOneTechnologie(id) {
         return new Promise((resolve, reject) => {
             this.connexion.query(`
-                SELECT 
-                    Technologies.name,
+                SELECT Technologies.name 
                 FROM Technologies 
                 WHERE Technologies.id = ?`,
                 [id],
@@ -30,15 +29,22 @@ export default class technologiesModel extends AbstractModels {
             );
         });
     }
-    createNewTechnologies (technologie) {
+    createNewTechnologies (technology) {
         return new Promise((resolve, reject) => {
             this.connexion.query(
-                `
-                    INSERT INTO Technologies
-                        (name)
-                    VALUE(?)
+                `INSERT INTO technologies
+                        (name, energy_cost, money_cost, material_cost, speed_benefit, attack_benefit, defense_benefit)
+                    VALUE(?, ?, ?, ?, ?, ?, ?)
                 `,
-                [technologie.name],
+                [
+                    technology.name,
+                    parseInt(technology.energy_cost),
+                    parseInt(technology.money_cost),
+                    parseInt(technology.material_cost),
+                    parseInt(technology.speed_benefit),
+                    parseInt(technology.attack_benefit),
+                    parseInt(technology.defense_benefit)
+                ],
                 (err, result) => {
                     if(err) reject(err)
                     resolve(result);

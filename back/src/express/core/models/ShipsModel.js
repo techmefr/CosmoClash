@@ -18,8 +18,7 @@ export default class ShipsModel extends AbstractModels {
     readOneShips(id) {
         return new Promise((resolve, reject) => {
             this.connexion.query(`
-                SELECT 
-                    ships.name,
+                SELECT *
                 FROM ships 
                 WHERE ships.id = ?`,
                 [id],
@@ -35,10 +34,17 @@ export default class ShipsModel extends AbstractModels {
             this.connexion.query(
                 `
                     INSERT INTO ships
-                        (name)
-                    VALUE(?)
+                        (ship_type, name, quantity, speed, attack, defense)
+                    VALUE(?, ?, ?, ?, ?, ?)
                 `,
-                [ships.name],
+                [
+                    ships.ship_type,
+                    ships.name,
+                    ships.quantity,
+                    ships.speed,
+                    ships.attack,
+                    ships.defense
+                ],
                 (err, result) => {
                     if(err) reject(err)
                     resolve(result);

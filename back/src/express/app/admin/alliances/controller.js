@@ -4,7 +4,7 @@ import {
     allianceCreated,
     allianceUpdateAllData,
     allianceUpdateOneData,
-    allianceDeleted
+    allianceDeleted, alliancePlanetGamer
 } from '../../../core/services/AllianceServices.js'
 
 export const index = (req, res) => {
@@ -73,7 +73,7 @@ export const patchAlliances = (req, res) => {
     allianceUpdateOneData(req.body, req.params.id)
         .then(() => {
             res.status(201).send(JSON.stringify({
-                message: 'Updated specific alliance data',
+                message: 'Updated specific alliance migrate',
                 status: res.statusCode
             }));
         })
@@ -117,3 +117,12 @@ export const deleteAlliances = (req, res) => {
             }));
         });
 }
+
+export const playerAndPlanet = (req, res) =>
+    alliancePlanetGamer(req.headers.filter)
+        .then((result) => {
+            res.status(200).json({message: 'Ok', data: result, status: res.statusCode});
+        })
+        .catch((err) => {
+            res.status(500).json({message: err.message, status: res.statusCode});
+        })

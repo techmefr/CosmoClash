@@ -101,7 +101,7 @@ export const patchActions = (req, res) => {
     .then(resultData => {
         if(resultData)
             res.status(201).send(JSON.stringify({
-                message: 'Updated specific action data',
+                message: 'Updated specific action migrate',
                 status: res.statusCode
             }));
         else

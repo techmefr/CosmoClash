@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "test": "jest",
-        "faker": "node src/database/seed.js",
+        "db:migrate": "node src/database/seed.js",
         "start-dev": "nodemon src/server/server.js"
     },
     "author": "",

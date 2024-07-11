@@ -1,37 +1,10 @@
-import {
-    SendersComponent,
-    PlanetComponent,
-    TitleComponent,
-    ShipsComponents
-} from "@/components/planets/index.jsx";
-import useNbShips from "@/hooks/useNbShips.jsx";
-import Starfield from "react-starfield";
+// TODO : Page pour afficher le composant qui recense les vaisseaux puis les planètes possibles à attaquer et le formulaire
 
-function Planet() {
-    const { nbShips, nbMaxShips, planets, addNumber, subNumber, submit } = useNbShips();
-    return (
-        <>
-            <Starfield
-                starCount={20000}
-                starColor={[255, 255, 255]}
-                speedFactor={0.1}
-                backgroundColor="black"
-            />
-            <TitleComponent />
-            <ShipsComponents
-                number_rocker={ nbMaxShips }
-            />
-            <PlanetComponent
-                planets={ planets }
-            />
-            <SendersComponent
-                nbShips={ nbShips }
-                submit={() => submit}
-                addNumber={() => addNumber}
-                subNumber={() => subNumber}
-            />
-        </>
-    );
+export default function PlanetPage() {
+  return (
+    <div>
+      <h1>page planet/attak de franck</h1>
+    </div>
+  )
 }
 
-export default Planet;

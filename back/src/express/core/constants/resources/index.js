@@ -10,6 +10,14 @@ const roadResources = [
         adminRoadTypeAccess: ['GET', 'POST', 'PUT','PATCH', 'DELETE'],
         userRoadTypeAccess: ['GET', 'PUT','PATCH']
     },
+
+    {
+        url: "/alliances",
+        adminRoadTypeAccess: ['GET', 'POST', 'PUT','PATCH', 'DELETE'],
+        userRoadTypeAccess: ['GET', 'POST', 'PUT','PATCH']
+    },
+
+    
     {
         url: "/planets",
         adminRoadTypeAccess: ['GET', 'POST', 'PUT','PATCH', 'DELETE'],
