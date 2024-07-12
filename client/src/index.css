@@ -16,7 +16,7 @@ h4,
 h5,
 h6 {
   font-family: "Sergoui", sans-serif;
-  color: white
+  color: white;
 }
 
 button {
@@ -32,49 +32,50 @@ button {
   background-color: #181818;
   min-width: 80%;
   font-family: "Roboto", sans-serif;
- }
+}
 
- .container_alliance_selected {
- border: 2px solid #33CCCC;
- background-color: #1e221e;
- }
+.container_alliance_selected {
+  border: 2px solid #33cccc;
+  background-color: #1e221e;
+}
 
- .info_alliace {
-   padding: 10px;
-  
- }
- .icon_alliace {
+.info_alliace {
+  padding: 10px;
+}
+.icon_alliace {
   display: grid;
   justify-content: center;
   align-items: center;
   color: #fff;
- }
+}
 
- .info_alliace h1 {
+.info_alliace h1 {
   font-size: 26px;
- }
+}
 
- .info_alliace h4 {
+.info_alliace h4 {
   font-size: 22px;
- }
+}
 
- .info_value {
+.info_value {
   font-size: 22px;
   font-weight: bold;
-  color: #33CCCC;
- }
+  color: #33cccc;
+}
 
- .alliance_btn_action {
+.alliance_btn_action {
   position: fixed;
   bottom: 70px;
- }
+  width: 100%;
+  margin: 1em;
+}
 
- .alliance_title {
+.alliance_title {
   color: #fff;
   font-size: 35px;
- }
+}
 
- .alert-box {
+.alert-box {
   display: none; /* Caché par défaut */
   position: fixed;
   top: 0;
@@ -105,7 +106,7 @@ button {
   margin-top: 50px;
   padding: 5px 30px;
   border: none;
-  background-color: #33CCCC;
+  background-color: #33cccc;
   color: white;
   border-radius: 5px;
   cursor: pointer;
