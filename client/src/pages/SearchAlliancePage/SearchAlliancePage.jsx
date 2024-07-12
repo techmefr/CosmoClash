@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 // import Starfield from "react-starfield";
 import CustomButton from "../../components/ui/CustomButton";
-import "./SearchAlliancePage";
+import "./searchAlliancepage.css";
 import { useEffect, useState } from "react";
 //import PlutoIco from "../../components/ui/svg/PlutoIco";
 //import GalaxyIco from "../../components/ui/svg/GalaxyIco";
 //import JupiterIco from "../../components/ui/svg/JupiterreIso";
 import MarsIco from "../../components/ui/svg/MarsIco";
+import "../../../src/index.css";
+
 
 const AllianceList = ({ alliance }) => {
   return (
@@ -99,7 +101,7 @@ function SearchAlliance() {
           </div>
         ))}
 
-        <div className="flex flex-col alliance_btn_action">
+        <div className="flex flex-col items-center alliance_btn_action">
           <CustomButton
             customButtonName="CREER UNE ALLIANCE"
             className="mb-4"
