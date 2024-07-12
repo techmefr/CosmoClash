@@ -40,23 +40,22 @@ export default function PlanetPage() {
   }
 
   const handleCardClick = (planet) => {
-    console.log("Card clicked:", planet);
+    console.log("Card clicked:", planet.id, planet.nom);
     setSelectedPlanet(planet);
   };
 
   const handleAttackClick = () => {
+    console.log("Attack button clicked");
     if (!selectedPlanet) {
       alert("Please select a planet to attack.");
       return;
     }
 
-    const randomBattle = () => {
-      return Math.random() > 0.5
-        ? "You won the battle!"
-        : "You lost the battle.";
-    };
-
-    const battleResult = randomBattle();
+    const battleResult =
+      Math.random() > 0.5
+        ? "Vous avez remporté cette bataille spatiale! 🚀🌟"
+        : "Votre attaque a échoué dans l'espace. 🛰️💥";
+    console.log("Battle result:", battleResult);
     alert(battleResult);
   };
 
