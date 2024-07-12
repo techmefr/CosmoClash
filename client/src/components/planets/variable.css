@@ -1,0 +1,96 @@
+/* Variables for planet css resources */
+:root {
+    /* SYSTEM */
+    --center-alignment: center;
+    --font-weight-bolder: bolder;
+    --flex-display: flex;
+    --flex-column: column;
+    --flex-justify-around: space-around;
+    --flex-row: row;
+    --margin-auto: auto;
+    /* ROTATIONS */
+    /* degree */
+    --rotate-z-fourty-five-deg: rotateZ(45deg);
+    /* SIZES */
+    /* px */
+    --fifety-pixels: 15px;
+    --twenty-four-pixels: 24px;
+    --thirty-pixels: 30px;
+    --heighty-six-pixels: 86px;
+    --thirty-hundred-sixety-five-pixels: 365px;
+    /* percent */
+    --two-percent: 2%;
+    --five-percent: 5%;
+    --width-ninety-percent: 80%;
+    --width-hundred-percent: 100%;
+    /* viewports */
+    --ninety-viewport-height: 90vh;
+    --ninety-five-viewport-height: 95vh;
+    /* COLOR */
+    --dark-color: #000000;
+    --dark-grey-color: #808080;
+    --light-blue: #33CCCC;
+    --white-color: #FFFFFF;
+    /*********************************/
+    /*            LAYOUTS            */
+    /*********************************/
+
+    /* input[type="number"] */
+    --input-type-pointer: none;
+    /* input */
+    --input-color: var(--dark-color);
+    --input-width-and-height:30px;
+    --input-font-weight:bolder;
+    --input-alignment: var(--center-alignment);
+    /* planet-container */
+    --planet-container-color: var(--white-color);
+    --planet-container-direction: var(--flex-column);
+    --planet-container-display: var(--flex-display);
+    --planet-container-height: var(--ninety-viewport-height);
+    --planet-container-margin: var(--margin-auto);
+    --planet-container-width: var(--width-hundred-percent);
+    /* planets-container-all */
+    --planets-container-all-width: var(--width-hundred-percent);
+    --planet-container-all-height: 93vh;
+    --planet-container-all-display: var(--flex-display);
+    --planet-container-all-direction: var(--flex-column);
+    --planet-container-all-alignment: var(--center-alignment);
+    /* ships */
+    --ships-width-and-height: 30px;
+    /*********************************/
+    /*         COMPONENTS            */
+    /*********************************/
+    /* TitleComponent: planet-container-title */
+    --planet-container-title-width: var(--width-hundred-percent);
+    --planet-container-title-height: calc(var(--ninety-five-viewport-height) - var(--width-ninety-percent));
+    --planet-container-title-display: var(--flex-display);
+    --planet-container-title-alignment: var(--center-alignment);
+    /* TitleComponent: h1 */
+    --title-font-size: var(--thirty-pixels);
+    /* ShipsComponent: i */
+    --i-transform: var(--rotate-z-fourty-five-deg);
+    /* ShipsComponent: container--ships */
+    --container--ships-background-color: var(--dark-grey-color);
+    --container--ships-width: var(--thirty-hundred-sixety-five-pixels);
+    --container--ships-margin: var(--two-percent) var(--margin-auto);
+    --container--ships-border-radius: var(--fifety-pixels);
+    --container--ships-height: var(--heighty-six-pixels);
+    /* ShipsComponent: container--ships--title */
+    --container--ships-title: var(--flex-display);
+    --container--ships-alignment: var(--center-alignment);
+    /* ShipsComponent: container--ships--title h4 */
+    --container--ships-h4-font-size: var(--twenty-four-pixels);
+    /* ShipsComponent: container--ships--informations */
+    --container--ships--informations-display: var(--flex-display);
+    --container--ships--informations-direction: var(--flex-row);
+    --container--ships--informations-align-items: var(--center-alignment);
+    --container--ships--informations-justify-content: var(--flex-justify-around);
+    --container--ships--informations-width: var(--width-ninety-percent);
+    --container--ships--informations-margin: var(--margin-auto) var(--margin-auto) var(--five-percent);
+    /* ShipsComponent: container--ships--informations div:last-child */
+    --container--ships--informations-div-last-child-margin-left: var(--five-percent);
+    --container--ships--informations-div-last-child-color: var(--light-blue);
+    --container--ships--informations-div-last-child-font-weight: var(--font-weight-bolder);
+    --container--ships--informations-div-last-child-font-size: var(--thirty-pixels);
+
+}

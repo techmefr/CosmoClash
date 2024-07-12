@@ -6,7 +6,8 @@ import {
     createPlanets,
     putPlanets,
     patchPlanets,
-    deletePlanets
+    deletePlanets,
+    getShips
 } from "./controller.js";
 
 export const planetRoad = express.Router();
@@ -14,6 +15,7 @@ export const planetRoad = express.Router();
 planetRoad
     .get('/', index)
     .get('/:id', findPlanets)
+    .get('/nbShips/:id', getShips)
     .post('/created', createPlanets)
     .put('/updated/:id', putPlanets)
     .patch('/updated/:id', patchPlanets)

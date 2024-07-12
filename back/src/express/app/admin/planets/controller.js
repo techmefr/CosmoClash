@@ -1,5 +1,5 @@
 import {
-    deletePlanet,
+    deletePlanet, getShipsPlanet,
     patchPlanet, patchPositionPlanet,
     planetCreated,
     planetFind,
@@ -153,4 +153,13 @@ export const addedPositionToPlanet = (req, res) => {
                 status: res.statusCode
             }));
         });
+}
+export const getShips = (req, res) => {
+    getShipsPlanet(parseInt(req.params.id))
+        .then(resultData => {
+            return res.status(200).json({message: 'Ok', data: resultData[0], status: res.statusCode});
+        })
+        .catch(err => {
+            res.status(404).json({message: err.message, status: res.statusCode});
+        })
 }

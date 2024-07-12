@@ -1,0 +1,71 @@
+.planet-container-senders {
+    width: 382px;
+    border-radius: 28px;
+    height: 117px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #383A40;
+    .container--augmentation {
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        div:first-child {
+            font-size: 16px;
+        }
+        div:last-child {
+            background-color: #303030;
+            margin-left: 1%;
+        }
+    }
+    p {
+        width:45px;
+        text-align:center;
+        padding-left: 15px;
+    }
+    .submit {
+        position: relative;
+        .masque {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            left: 0;
+            border-top-left-radius: 40px;
+            border-bottom-left-radius: 40px;
+            width: 55%;
+            overflow: hidden;
+            z-index: 1000;
+            .pink {
+                background-color: rgba(254, 83, 186, 63.5%);
+                width: 50%;
+                height: 30px;
+                border-top-left-radius: 40px;
+                border-bottom-left-radius: 40px;
+                opacity: .5;
+            }
+            .purple {
+                background-color: rgba(142, 81, 234, 70.6%);
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 83px;
+                height: 30px;
+                border-top-right-radius: 40px;
+                border-bottom-right-radius: 40px;
+                opacity: .4;
+            }
+        }
+        background: #212121;
+        margin-top: 2%;
+        width: 80%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 80px;
+        margin-bottom: 2%;
+    }
+}

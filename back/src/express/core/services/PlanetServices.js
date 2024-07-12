@@ -7,3 +7,4 @@ export const putPlanet = (planet, id) => planetModel.putPlanets(planet, id).then
 export const patchPlanet = (planet, id) => planetModel.putPlanets(planet, id).then();
 export const patchPositionPlanet = (planet, id) => planetModel.updatePositionId(planet, id).then();
 export const deletePlanet = id => planetModel.deletePlanets(id).then();
+export const getShipsPlanet = id => planetModel.getShips(id).then();

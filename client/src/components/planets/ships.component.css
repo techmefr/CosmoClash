@@ -1,0 +1,32 @@
+i {
+    transform: var(--i-transform);
+}
+.container--ships {
+    background-color: var(--container--ships-background-color);
+    width: var(--container--ships-width);
+    margin: var(--container--ships-margin);
+    border-radius: var(--container--ships-border-radius);
+    height: var(--container--ships-height);
+    .container--ships--title {
+        display: var(--flex-display);
+        justify-content: var(--container--ships-alignment);
+        align-items: var(--container--ships-alignment);
+        h4 {
+            font-size: var(--container--ships-h4-font-size);
+        }
+    }
+    .container--ships--informations {
+        display: var(--container--ships--informations-display);
+        flex-direction: var(--container--ships--informations-direction);
+        align-items: var(--container--ships--informations-align-items);
+        justify-content: var(--container--ships--informations-justify-content);
+        width: var(--container--ships--informations-width);
+        margin: var(--container--ships--informations-margin);
+        div:last-child {
+            margin-left: var(--container--ships--informations-div-last-child-margin-left);
+            color: var(--container--ships--informations-div-last-child-color);
+            font-weight: var(--container--ships--informations-div-last-child-font-weight);
+            font-size: var(--container--ships--informations-div-last-child-font-size);
+        }
+    }
+}

@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import "./customCard.css";
 
-const CustomCard = ({ title, value, icon: Icon, iconProps }) => {
+const CustomCard = ({ title, value, icon: Icon, iconProps, onClick }) => {
   return (
-    <div className="card black">
+    <div className="card black" onClick={onClick}>
       {Icon && <Icon className="icon" {...iconProps} />}
       <div className="text-container">
         <p className="tip">{title}</p>
@@ -18,6 +18,7 @@ CustomCard.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   icon: PropTypes.elementType,
   iconProps: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 export default CustomCard;

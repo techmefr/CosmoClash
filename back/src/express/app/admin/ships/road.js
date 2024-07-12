@@ -4,8 +4,7 @@ import {
     findShips,
     createShips,
     putShips,
-    patchOneShip,
-    shipDelete
+    patchOneShip
 } from "./controller.js";
 
 export const shipsRoad = express.Router();

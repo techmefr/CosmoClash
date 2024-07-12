@@ -1,0 +1,33 @@
+@import url(@/components/planets/variable.css);
+
+.planets-container-all {
+    display: var(--planet-container-all-display);
+    justify-content: var(--planet-container-all-alignment);
+    align-items: var(--planet-container-all-alignment);
+    width: var(--planets-container-all-width);
+    height: var(--planet-container-all-height);
+    input[type="number"] {
+        pointer-events: var(--input-type-pointer);
+    }
+    .ships {
+        width: var(--ships-width-and-height);
+        height: var(--ships-width-and-height);
+    }
+    input {
+        color: var(--input-color);
+        width: var(--input-width-and-height);
+        height: var(--input-width-and-height);
+        font-weight: var(--input-font-weight);
+        text-align: var(--input-alignment);
+    }
+    .planet-container {
+        width: var(--planet-container-width);
+        height: var(--planet-container-height);
+        margin: var(--planet-container-margin);
+        display: var(--planet-container-display);
+        color: var(--planet-container-color);
+        flex-direction: var(--planet-container-direction);
+        justify-content: var(--planet-container-all-alignment);
+        align-items: var(--planet-container-all-alignment);
+    }
+}

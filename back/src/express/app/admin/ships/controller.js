@@ -1,5 +1,4 @@
 import {
-    deleteShip,
     patchShips,
     shipCreated,
     shipFind,
@@ -115,22 +114,6 @@ export const patchOneShip = (req, res) => {
                     status: res.statusCode
                 }));
             }
-        })
-        .catch(err => {
-            res.status(400).send(JSON.stringify({
-                message: 'Bad request: ' + err.message,
-                status: res.statusCode
-            }));
-        });
-}
-
-export const shipDelete = (req, res) => {
-    deleteShip(req.params.id)
-        .then(() => {
-            res.status(200).send(JSON.stringify({
-                message: 'Deleted successfully',
-                status: res.statusCode
-            }));
         })
         .catch(err => {
             res.status(400).send(JSON.stringify({

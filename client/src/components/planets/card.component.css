@@ -1,0 +1,55 @@
+.card--planet--container {
+    position: relative;
+    width: 365px;
+    margin: 2% auto 10%;
+    border-radius: 15px;
+    background-color: #181818;
+    height: 86px;
+    display: flex;
+    flex-direction: row;
+    .card--planet--icons {
+        position: absolute;
+        top: -2%;
+        left: -40%;
+        width: 355px;
+        height: 86px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card--planet--informations {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .container-tit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1%;
+            h4 {
+                font-size: 24px;
+            }
+        }
+        .container-inf {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            height: calc(100px);
+            margin: auto;
+            align-items: center;
+            & div {
+                margin-right: 5%;
+                width: 15%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    span {
+        font-size: 24px;
+    }
+}

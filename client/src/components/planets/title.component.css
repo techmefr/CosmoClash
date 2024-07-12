@@ -1,0 +1,11 @@
+@import url(./variable.css);
+.planet-container-title {
+    width: var(--planet-container-title-width);
+    height: var(--planet-container-title-height);
+    display: var(--planet-container-title-display);
+    justify-content: var(--planet-container-title-alignment);
+    align-items: var(--planet-container-title-alignment);
+    h1 {
+        font-size: var(--title-font-size);
+    }
+}
