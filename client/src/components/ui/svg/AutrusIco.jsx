@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function AutrusIco({ width, height, color }) {
+function AutrusIco({ width = "500", height = "500", color = "#ffffff" }) {
   return (
     <svg
       version="1.1"
@@ -75,12 +75,6 @@ AutrusIco.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-};
-
-AutrusIco.defaultProps = {
-  width: "512",
-  height: "512",
-  color: "#ffffff",
 };
 
 export default AutrusIco;

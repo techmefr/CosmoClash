@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 
 function ElectricityIco({
-  width,
-  height,
+  width = "24px",
+  height = "24px",
   fillColor = "#FFFFFF",
-  path1FillColor,
-  path2FillColor,
-  path3FillColor,
-  path4FillColor,
-  path5FillColor,
-  path6FillColor,
-  path7FillColor,
-  path8FillColor,
+  path1FillColor = "#33CCCC",
+  path2FillColor = fillColor,
+  path3FillColor = fillColor,
+  path4FillColor = fillColor,
+  path5FillColor = fillColor,
+  path6FillColor = fillColor,
+  path7FillColor = fillColor,
+  path8FillColor = fillColor,
 }) {
   return (
     <svg
@@ -143,13 +143,6 @@ ElectricityIco.propTypes = {
   path6FillColor: PropTypes.string,
   path7FillColor: PropTypes.string,
   path8FillColor: PropTypes.string,
-};
-
-ElectricityIco.defaultProps = {
-  width: "24px",
-  height: "24px",
-  fillColor: "#FFFFFF",
-  path1FillColor: "#33CCCC",
 };
 
 export default ElectricityIco;

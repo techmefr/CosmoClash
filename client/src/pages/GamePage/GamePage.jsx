@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import fetchUserData from "../../services/userService";
+import CustomCard from "../../components/ui/CustomCard/CustomCard";
 import "../../components/ui/CustomCard/customCard.css";
+import "./gamePage.css";
+import CommunauteIco from "../../components/ui/svg/CollaborationIco";
+import PlanetIcoRandom from "../../components/ui/PlanetIcoRandom";
+import RocketIco from "../../components/ui/svg/RocketIco";
+import ElectricityIco from "../../components/ui/svg/ElectricityIco";
+import MoneyBagIco from "../../components/ui/svg/MoneyBagIco";
+import MineIco from "../../components/ui/svg/MineIco";
 
 export default function GamePage() {
   const [userData, setUserData] = useState(null);
@@ -8,10 +16,10 @@ export default function GamePage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const getUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:8002/api/users");
-        setUserData(response.data);
+        const data = await fetchUserData();
+        setUserData(data);
       } catch (err) {
         setError(err);
       } finally {
@@ -19,7 +27,7 @@ export default function GamePage() {
       }
     };
 
-    fetchUserData();
+    getUserData();
   }, []);
 
   if (loading) {
@@ -34,36 +42,80 @@ export default function GamePage() {
     return <div>No user data found.</div>;
   }
 
+  const dataFields = [
+    {
+      title: "Alliance",
+      key: "alliance_name",
+      icon: CommunauteIco,
+      iconProps: {
+        width: "100px",
+        height: "100px",
+        fillColor: "#FFFFFF",
+      },
+    },
+    {
+      title: "Nombre de planètes",
+      key: "planets_count",
+      icon: PlanetIcoRandom,
+      iconProps: {
+        width: "100px",
+        height: "100px",
+      },
+    },
+    {
+      title: "Nombre de vaisseaux",
+      key: "ships_count",
+      icon: RocketIco,
+      iconProps: {
+        width: "80px",
+        height: "80px",
+        fillColor: "#FFFFFF",
+      },
+    },
+    {
+      title: "Énergie",
+      key: "energy",
+      icon: ElectricityIco,
+      iconProps: {
+        width: "100px",
+        height: "100px",
+        fillColor: "#FFFFFF",
+      },
+    },
+    {
+      title: "Monnaie",
+      key: "money",
+      icon: MoneyBagIco,
+      iconProps: {
+        width: "100px",
+        height: "100px",
+        fillColor: "#FFFFFF",
+      },
+    },
+    {
+      title: "Matériel",
+      key: "material",
+      icon: MineIco,
+      iconProps: {
+        width: "200px",
+        height: "200px",
+        fillColor: "#FFFFFF",
+      },
+    },
+  ];
+
   return (
     <div className="cards">
-      <div className="card black">
-        <p className="tip">Nom d&apos;utilisateur</p>
-        <p className="second-text">{userData.username}</p>
-      </div>
-      <div className="card black">
-        <p className="tip">Alliance</p>
-        <p className="second-text">{userData.alliance_name}</p>
-      </div>
-      <div className="card black">
-        <p className="tip">Nombre de planètes</p>
-        <p className="second-text">{userData.planets_count}</p>
-      </div>
-      <div className="card black">
-        <p className="tip">Nombre de vaisseaux</p>
-        <p className="second-text">{userData.ships_count}</p>
-      </div>
-      <div className="card black">
-        <p className="tip">Énergie</p>
-        <p className="second-text">{userData.energy}</p>
-      </div>
-      <div className="card black">
-        <p className="tip">Monnaie</p>
-        <p className="second-text">{userData.money}</p>
-      </div>
-      <div className="card black">
-        <p className="tip">Matériel</p>
-        <p className="second-text">{userData.material}</p>
-      </div>
+      <h2>Bienvenue {userData.username}</h2>
+      {dataFields.map((field, index) => (
+        <CustomCard
+          key={index}
+          title={field.title}
+          value={userData[field.key]}
+          icon={field.icon}
+          iconProps={field.iconProps}
+        />
+      ))}
     </div>
   );
 }

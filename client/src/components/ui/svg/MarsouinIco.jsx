@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function MarsouinIco({ width, height, color }) {
+const MarsouinIco = ({ width = "512", height = "512", color = "#FFFFFF" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -232,18 +232,12 @@ function MarsouinIco({ width, height, color }) {
       </g>
     </svg>
   );
-}
+};
 
 MarsouinIco.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-};
-
-MarsouinIco.defaultProps = {
-  width: "512",
-  height: "512",
-  color: "#FFFFFF",
 };
 
 export default MarsouinIco;

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function PlanoIco({ width, height, color }) {
+function PlanoIco({ width = "100%", height = "100%", color = "#000000" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,12 +31,6 @@ PlanoIco.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-};
-
-PlanoIco.defaultProps = {
-  width: "100%",
-  height: "100%",
-  color: "#000000",
 };
 
 export default PlanoIco;

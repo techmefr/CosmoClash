@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
 import "./customCard.css";
 
-const CustomCard = ({ title, value }) => {
+const CustomCard = ({ title, value, icon: Icon, iconProps }) => {
   return (
     <div className="card black">
-      <p className="tip">{title}</p>
-      <p className="second-text">{value}</p>
+      {Icon && <Icon className="icon" {...iconProps} />}
+      <div className="text-container">
+        <p className="tip">{title}</p>
+        <p className="second-text">{value}</p>
+      </div>
     </div>
   );
 };
@@ -13,6 +16,8 @@ const CustomCard = ({ title, value }) => {
 CustomCard.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  icon: PropTypes.elementType,
+  iconProps: PropTypes.object,
 };
 
 export default CustomCard;

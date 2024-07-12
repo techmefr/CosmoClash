@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function VenusIco({ width, height, color }) {
+const VenusIco = ({ width = "512", height = "512", color = "#ffffff" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -38,18 +38,12 @@ function VenusIco({ width, height, color }) {
       </g>
     </svg>
   );
-}
+};
 
 VenusIco.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-};
-
-VenusIco.defaultProps = {
-  width: "512",
-  height: "512",
-  color: "#ffffff",
 };
 
 export default VenusIco;
