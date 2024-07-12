@@ -129,7 +129,7 @@ export default function MarketPage() {
         </div>
         <div className="flex justify-evenly items-center bg-card w-96 rounded-lg h-auto text-white font-bold p-2 m-5">
           <PlusIco width={60} height={60} />
-          <div>
+          <div id="buy-speed">
             <p>Améliorer la vitesse des vaisseaux</p>
             <div className="flex">
               <p className="flex items-center gap-1">
@@ -149,7 +149,10 @@ export default function MarketPage() {
             </div>
           </div>
         </div>
-        <div className="flex justify-evenly items-center bg-card w-96 rounded-lg h-auto text-white font-bold p-2 m-5">
+        <div
+          id="buy-attack"
+          className="flex justify-evenly items-center bg-card w-96 rounded-lg h-auto text-white font-bold p-2 m-5"
+        >
           <PlusIco width={60} height={60} />
           <div>
             <p>Améliorer l&apos;attaque des vaisseaux</p>
@@ -171,7 +174,10 @@ export default function MarketPage() {
             </div>
           </div>
         </div>
-        <div className="flex justify-evenly items-center bg-card w-96 rounded-lg h-auto text-white font-bold p-2 m-5">
+        <div
+          id="buy-defense"
+          className="flex justify-evenly items-center bg-card w-96 rounded-lg h-auto text-white font-bold p-2 m-5"
+        >
           <PlusIco width={60} height={60} />
           <div>
             <p>Améliorer la défense des vaisseaux</p>
